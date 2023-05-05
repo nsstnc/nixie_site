@@ -1,0 +1,361 @@
+<style>
+
+    .page_title {
+        width: 100%;
+        height: 100px;
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 42px;
+        display: block;
+        text-align: center;
+        color: #DC7A33;
+        line-height: 100px;
+    }
+
+    .filters_section {
+        width: 100%;
+        background: #181818;
+        height: 50px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .selected_filters {
+        width: 50%;
+        background: #3A3A3A;
+        height: 50px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .selected_filter_card {
+        padding-inline: 5px;
+
+        background: #181818;
+        margin-right: 5px;
+
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 24px;
+        color: #DC7A33;
+        text-align: center;
+    }
+
+    .filters,
+    .view {
+        margin-right: 15px;
+        margin-top: auto;
+    }
+
+    .filters {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+    }
+
+    .filter, .show_button, .reset_button {
+        margin-right: 20px;
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 18px;
+        color: #DC7A33;
+        text-decoration: none;
+    }
+
+    .reset_button:hover {
+        text-decoration: underline;
+    }
+
+    .catalog {
+        background: #3A3A3A;
+        width: 100%;
+        border-bottom: 2px solid #181818;
+    }
+
+    .cards {
+        display: grid;
+        /* Автоматически заполняем на всю ширину grid-контейнера */
+        grid-template-columns: repeat(auto-fill, 225px);
+        width: 80%;
+        max-width: 1000px; /* Ширина grid-контейнера */
+        justify-content: center;
+        justify-items: center; /* Размещаем карточку по центру */
+        column-gap: 30px; /* Отступ между колонками */
+        row-gap: 40px; /* Отступ между рядами */
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .card {
+        width: 220px;
+        min-height: 350px;
+        display: flex;
+        flex-direction: column; /* Размещаем элементы в колонку */
+        transition: 0.2s;
+        position: relative;
+        background: #181818;
+        border: 1px solid black;
+    }
+
+    .card_top {
+        flex: 0 0 150px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
+        position: relative;
+        overflow: hidden; /* Скрываем, что выходит за пределы */
+        margin: 10px 10px 0 10px;
+    }
+
+    .card_image {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .card_image > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Встраиваем картинку в контейнер card__image */
+        transition: 0.2s;
+    }
+
+    .card_image:hover > img {
+        transform: scale(1.1);
+    }
+
+    .card_bottom {
+        margin: 0 10px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto; /* Занимаем всю оставшуюся высоту карточки */
+    }
+
+    .card_bottom form {
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+
+    .card_title {
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 17px;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        line-height: 100%;
+        color: #DC7A33;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .card_price {
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 30px;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        line-height: 100%;
+        color: #DC7A33;
+    }
+
+    .card_title:hover {
+        color: #DC7A33;
+        text-decoration: underline;
+    }
+
+    .card_add,
+    .card_buy {
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18px;
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        color: #181818;
+        background: #DC7A33;
+        padding: 7px;
+        text-align: center;
+        border: 1px solid black;
+        cursor: pointer; /* Меняем курсор при наведении */
+        margin-top: auto;
+        text-decoration: none/* Прижимаем кнопку к низу карточки */
+    }
+
+    .card_add {
+        background: #181818;
+        color: #DC7A33;
+    }
+
+    .card_add:hover {
+        background: #DC7A33;
+        color: #fff;
+    }
+
+    .card_buy:hover {
+        color: #fff;
+    }
+
+    .form-control {
+        background: #181818;
+        border: 0;
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        width: 18px;
+        color: #DC7A33;
+    }
+
+    .view_ul {
+        display: flex;
+        flex-flow: row nowrap;
+        padding: 0;
+        list-style: none;
+    }
+
+    .view_ul li {
+        margin-right: 20px;
+        margin-left: 30%;
+    }
+
+    .view_ul li:last-child {
+        margin-right: 0px;
+        margin-left: auto;
+    }
+
+
+    .show_button {
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 20px;
+        color: #181818;
+        background: #DC7A33;
+        border-width: 1px;
+        border-color: #DC7A33;
+    }
+
+    .show_button:active,
+    .show_button:hover {
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 20px;
+        color: #DC7A33;
+        background: #181818;
+        border-width: 1px;
+        border-color: #DC7A33;
+        border-style: solid;
+        cursor: pointer;
+    }
+</style>
+{% extends 'nixie_app/index.html' %}
+{% load widget_tweaks %}
+{% block 'title' %}Каталог {% endblock %}
+{% block nav_catalog %}
+    class="active"
+{% endblock %}
+
+
+{% block 'page_content' %}
+
+    <section class="page_title">
+        <a>Каталог</a>
+    </section>
+
+    <section class="filters_section">
+        <form id='filters' class="filters" method="get">
+            {% for field in filter.form %}
+                <div class="filter">
+                    {{ field.label_tag }}
+                    {% render_field field class="form-control" %}
+                </div>
+            {% endfor %}
+            <button class="show_button">Показать</button>
+            {% if has_filter %}
+                <a class="reset_button" href="{% url 'catalog-name' %}">
+                    Сбросить
+                </a>
+            {% endif %}
+        </form>
+        <ul class="view_ul">
+            <li>
+                <div class="card_view">
+                    <a>
+                        <img src="/images/card_view.png" width="24" height="24"/>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="string_view">
+                    <a>
+                        <img src="/images/string_view.png" width="24" height="24"/>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section class="selected_filters">
+        {% for filter in current_filters %}
+            {% if filter != "" %}
+                <div class="selected_filter_card">{{ filter }}</div>
+            {% endif %}
+        {% endfor %}
+    </section>
+    <!-- Каталог по карточкам -->
+    <section class="catalog">
+        <div class="cards">
+            {% for product in filter.qs %}
+                <div class="card">
+                    <!-- Верхняя часть -->
+                    <div class="card_top">
+                        <!-- Изображение-ссылка товара -->
+                        <a href="{{ product.get_absolute_url }}" class="card_image">
+                            <img src="
+                                    {% if product.image1 %}{{ product.image1.url }}{% else %}{{ "/images/sample.png" }}{% endif %}"/>
+                        </a>
+                    </div>
+                    <!-- Нижняя часть -->
+                    <div class="card_bottom">
+                        <!-- Ссылка-название товара -->
+                        <a href="{{ product.get_absolute_url }}" class="card_title">
+                            {{ product.name }}
+                        </a>
+                        <!-- Цена на товар -->
+                        <div class="card_price">
+                            {{ product.price }} руб.
+                        </div>
+
+                        <!-- Кнопки купить и добавить в корзину -->
+                        <a href="{% url "orders:order_create_one" product.id %}" class="card_buy">Купить</a>
+                        <form action="{% url "cart:cart_add" product.id %}" method="post">
+                            {{ cart_product_form }}
+                            {% csrf_token %}
+                            <button type="submit" class="card_add">Добавить в корзину</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}

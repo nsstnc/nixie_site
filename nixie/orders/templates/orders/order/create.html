@@ -1,0 +1,218 @@
+<style>
+    .page_title {
+        width: 100%;
+        height: 100px;
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 42px;
+        display: block;
+        text-align: center;
+        color: #DC7A33;
+        line-height: 100px;
+    }
+
+    .cart_section {
+        background: #181818;
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .main {
+        width: 80%;
+        margin: 70px;
+    }
+
+    .right_div {
+        width: 100%;
+        border: 2px solid #DC7A33;
+        margin-left: 10px;
+        position: relative;
+        flex-flow: column;
+    }
+
+    .right_div p {
+        margin-left: 10px;
+        margin-bottom: 20px;
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 30px;
+        color: #DC7A33;
+        line-height: 32px;
+    }
+
+    .title {
+        left: 10px;
+    }
+
+    .right_div ul {
+        margin-top: 10px;
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        color: #DC7A33;
+        line-height: 18px;
+        text-decoration: none;
+        list-style-type: none;
+    }
+
+    .left_div {
+        width: 100%;
+        border: 2px solid #DC7A33;
+        position: relative;
+        flex-flow: row;
+    }
+
+    .left_image {
+        position: absolute;
+        left: 100px;
+        top: 100px;
+    }
+
+    .pay_button {
+        margin-top: 20px;
+        width: 280px;
+        height: 50px;
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 350;
+        font-size: 24px;
+        line-height: 50px;
+        color: #181818;
+        background: #DC7A33;
+        border-width: 0;
+    }
+
+    .pay_button:active,
+    .pay_button:hover {
+        margin-top: 20px;
+        width: 280px;
+        height: 50px;
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 350;
+        font-size: 24px;
+        line-height: 50px;
+        color: #DC7A33;
+        background: #181818;
+        border-width: 2px;
+        border-color: #DC7A33;
+        border-style: solid;
+        cursor: pointer;
+    }
+
+    .form_group_cart {
+        margin-bottom: 25px;
+        margin-right: 40px;
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
+        align-items: end;
+    }
+
+    .field {
+        width: 280px;
+        height: 30px;
+        font-family: 'Bahnschrift';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 10px;
+        display: flex;
+        text-align: left;
+        color: #181818;
+        margin-bottom: 5px;
+    }
+</style>
+
+{% extends 'nixie_app/index.html' %}
+{% block 'title' %}Оформление заказа{% endblock %}
+
+
+{% block 'page_content' %}
+
+    <section class="page_title">
+        <a>Оформление заказа</a>
+    </section>
+
+    <section class="cart_section">
+        <div class="main">
+            <div class="left" style="width: 75%; float:left">
+
+                <div class="left_div">
+                    <div class="left_image">
+                        <a>
+                            <img height="300" width="300" src="/images/icon_order.png"/>
+                        </a>
+                    </div>
+                    <div class="form_div">
+                        <form method="post" class="order-form"">
+                            {% csrf_token %}
+                            <div class="form_group_cart">
+                                <div>
+                                    <p class="form_lable">Имя</p>
+                                    <p>{{ order_form.first_name }}</p>
+                                </div>
+                                <div>
+                                    <p class="form_lable">Фамилия</p>
+                                    <p>{{ order_form.last_name }}</p>
+                                </div>
+                                <div>
+                                    <p class="form_lable">Email</p>
+                                    <p>{{ order_form.email }}</p>
+                                </div>
+                                <div>
+                                    <p class="form_lable">Адрес</p>
+                                    <p>{{ order_form.address }}</p>
+                                </div>
+                                <div>
+                                    <p class="form_lable">Почтовый индекс</p>
+                                    <p>{{ order_form.postal_code }}</p>
+                                </div>
+                                <div>
+                                    <button type="submit" class="pay_button">Оформить</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="right" style="width: 25%; float:right">
+                <div class="right_div">
+                    <p class="title">Ваш заказ</p>
+                    {% if cart %}
+                        <ul>
+                            {% for item in cart %}
+                                {% if item.quantity != 0 %}
+                                    <li>
+                                        {{ item.quantity }} x {{ item.product.name }}
+                                        <span>{{ item.total_price }} руб.</span>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                        <p>Итого {{ cart.get_total_price }} руб.</p>
+
+                    {% else %}
+                        <ul>
+                            <li>
+                                1 x {{ item.name }}
+                                <span>{{ item.price }} руб.</span>
+                            </li>
+                        </ul>
+                        <p>Итого {{ item.price }} руб.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

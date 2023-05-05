@@ -1,0 +1,13 @@
+<script type="text/javascript" charset="utf-8">
+  setTimeout(()=>successMessage.hidden = true, 1000)
+</script>
+<style>
+
+</style>
+{% if messages %}
+  {% for message in messages %}
+    <div id="successMessage" class="div">
+      {{message}}
+    </div>
+ {% endfor %}
+{% endif %}
