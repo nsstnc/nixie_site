@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .forms import ContactForm
+from .forms import ContactForm, ReviewForm
 from django.core.mail import send_mail, BadHeaderError
 from django.urls import reverse, reverse_lazy
 from django_filters.views import FilterView
 
-from .models import Product
+from .models import Product, Review
 from .filters import ProductFilter
 
 from cart.forms import CartAddProductForm
@@ -34,8 +34,6 @@ def contact(request):
                           ['egorgolubev0484@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Форма заполнена неверно')
-            return redirect("main-name")
-
 
 def product_detail(request, id, slug):
     cart = Cart(request)
@@ -76,8 +74,8 @@ def catalog(request):
     contact(request)
     form = ContactForm()
     cart_product_form = CartAddProductForm()
-    f = ProductFilter(request.GET, queryset=Product.objects.all())
     products = Product.objects.filter(available=True)
+    f = ProductFilter(request.GET, queryset=products)
 
     current_filters = []
     try:
@@ -103,14 +101,24 @@ def catalog(request):
     return render(request, "nixie_app/catalog.html", context=res)
 
 
+from pathlib import Path
+import os
+
+
 def portfolio(request):
     cart = Cart(request)
     contact(request)
     form = ContactForm()
+    # получаем путь к изображениям
+    os.chdir(os.path.join(Path(__file__).resolve().parent.parent, 'nixie_app/templates/nixie_app/images/products'))
+    images_names = []
+    # получаем имена изображений с расширениями jpg, png, jpeg
+    images_names += [each for each in os.listdir(".") if each.endswith(('.png', '.jpg', '.jpeg'))]
     res = {
         "form": form,
         'cart': cart,
         'cart_len': len(cart),
+        'images_names': images_names
     }
     return render(request, "nixie_app/portfolio.html", context=res)
 
@@ -131,12 +139,40 @@ def reviews(request):
     cart = Cart(request)
     contact(request)
     form = ContactForm()
+    reviews = Review.objects.filter(available=True)
     res = {
         "form": form,
         'cart': cart,
         'cart_len': len(cart),
+        'reviews': reviews
     }
     return render(request, "nixie_app/reviews.html", context=res)
+
+
+def review_create(request):
+    cart = Cart(request)
+    contact(request)
+    form = ContactForm()
+    if request.method == 'POST':
+        review_form = ReviewForm(request.POST)
+        if review_form.is_valid():
+            review_form.save()
+            res = {
+                'form': form,
+                'cart_len': len(cart),
+            }
+
+        return render(request, 'nixie_app/created.html', res)
+
+    else:
+        review_form = ReviewForm()
+        res = {
+            'form': form,
+            'cart_len': len(cart),
+            'review_form': review_form,
+        }
+        return render(request, 'nixie_app/create.html', res)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))  # возврат текущей страницы
 
 
 def questions(request):
@@ -155,7 +191,6 @@ def basket(request):
     cart = Cart(request)
     contact(request)
     form = ContactForm()
-
     res = {
         "form": form,
         'cart': cart,

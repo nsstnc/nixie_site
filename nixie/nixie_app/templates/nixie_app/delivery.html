@@ -2,7 +2,7 @@
     .page_title {
         width: 100%;
         height: 100px;
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 300;
         font-size: 42px;
@@ -11,10 +11,86 @@
         color: #DC7A33;
         line-height: 100px;
     }
+
+    .delivery {
+        width: 100%;
+        background: #181818;
+        height: auto;
+    }
+
+    .delivery_div {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+        margin: 0 auto 0 auto;
+        padding-bottom: 50px;
+    }
+
+    .delivery_string {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-items: center;
+        margin-top: 100px;
+
+    }
+
+    .delivery_last_string {
+        width: 100%;
+        display: flex;
+        text-align: left;
+        margin-top: 50px;
+        font-family: 'GOST Common';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 12px;
+        align-items: center;
+        color: #ffffff;
+        margin-bottom: 50px;
+    }
+
+    .delivery_left {
+        width: 20%;
+        font-family: 'GOST Common';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 36px;
+        align-items: center;
+        text-align: left;
+        color: #DC7A33;
+        margin-right: 70px;
+    }
+
+    .delivery_right {
+        width: 80%;
+        font-family: 'GOST Common';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        align-items: center;
+        text-align: left;
+        color: #ffffff;
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+
+    }
+
+    .text{
+        font-family: 'GOST Common';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 18px;
+        color: #DC7A33;
+    }
 </style>
 {% extends 'nixie_app/index.html' %}
 {% block 'title' %} Доставка{% endblock %}
-{% block nav_delivery%}
+{% block nav_delivery %}
     class="active"
 {% endblock %}
 
@@ -22,5 +98,58 @@
     <section class="page_title">
         <a>Доставка, оплата и контакты</a>
     </section>
+    <section class="delivery">
+        <div class="delivery_div">
+            <div class="delivery_string">
+                <div class="delivery_left">ДОСТАВКА</div>
+                <div class="delivery_right">Доставка осуществляется компаниями CDEK,
+                    BoxBerry, Почта России. После оформления заказа с Вами свяжутся
+                    для уточнения адреса доставки и сроков готовности часов.
+                </div>
+            </div>
+            <div class="delivery_string">
+                <div class="delivery_left">ОПЛАТА</div>
+                <div class="delivery_right">Оплата товаров производится из корзины на сайте в момент заказа,
+                    после того, как заказ оплачен,
+                    Ваши данные попадают к нам и мы начинаем его выполнение.
+                    А в случае неполадок связываемся с Вами
+                    для уточнения деталей покупки.
+                </div>
+            </div>
+            <div class="delivery_string">
+                <div class="delivery_left">КОНТАКТЫ</div>
+                <div class="delivery_right">
 
+
+                    <div class="text">
+                        +7 927 964 12 44 <br>
+                        egorgolubev0484@gmail.com
+                    </div>
+
+                    <div class="telegram">
+                        <a href="https://t.me/nsstnc">
+                            <img src="/images/telegram.png" width="45" height="45"/>
+                        </a>
+                    </div>
+
+                    <div class="vk">
+                        <a href="https://vk.com/nsstnc">
+                            <img src="/images/vk.png" width="51" height="45"/>
+                        </a>
+                    </div>
+
+                    <div class="whatsapp">
+                        <a href="https://wa.me/79279641244">
+                            <img src="/images/whatsapp.png" width="45" height="45"/>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="delivery_last_string">*По вопросам возврата или техническим проблемам с нашими изделиями,
+                просьба обращаться по указанному телефону
+            </div>
+        </div>
+    </section>
 {% endblock %}

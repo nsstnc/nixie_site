@@ -2,7 +2,7 @@
     .page_title {
         width: 100%;
         height: 100px;
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 300;
         font-size: 42px;
@@ -10,6 +10,96 @@
         text-align: center;
         color: #DC7A33;
         line-height: 100px;
+    }
+
+    .info_section {
+        width: 100%;
+        background: #181818;
+    }
+
+    .info_div {
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+    }
+
+    .info_string {
+        width: 100%;
+        padding-top: 50px;
+    }
+
+    .info_string_top {
+        width: 100%;
+        font-family: 'GOST Common';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 42px;
+        align-items: center;
+        text-align: left;
+        color: #DC7A33;
+        margin-bottom: 25px;
+    }
+
+    .info_string_center {
+        width: 100%;
+        font-family: 'GOST Common';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18px;
+        align-items: center;
+        text-align: left;
+        color: #ffffff;
+    }
+
+    .info_string_bottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .frame_photo {
+        display: block;
+        height: 250px;
+        width: 400px;
+        margin: 20px 10px 20px 10px;
+    }
+
+    .frame_photo > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Встраиваем картинку в контейнер card__image */
+        transition: 0.2s;
+    }
+    .info_string:last-child .frame_photo{
+        height: 400px;
+        margin: 0 10px 0 10px;
+    }
+    .info_string:last-child .frame_photo > img{
+        height: 50%;
+        margin-bottom: 20px;
+    }
+    .frame_header {
+        width: 100%;
+        font-family: 'GOST Common';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        align-items: center;
+        text-align: left;
+        color: #DC7A33;
+        margin-bottom: 20px;
+    }
+    .frame_text {
+        width: 100%;
+        font-family: 'GOST Common';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18px;
+        align-items: center;
+        text-align: left;
+        color: #ffffff;
     }
 </style>
 {% extends 'nixie_app/index.html' %}
@@ -20,6 +110,121 @@
 
 {% block 'page_content' %}
     <section class="page_title">
-        <a>О газоразрядных индикаторах</a>
+        <a>О газоразрядных лампах</a>
+    </section>
+    <section class="info_section">
+        <div class="info_div">
+            <div class="info_string">
+                <div class="info_string_top">ЧТО ЭТО?</div>
+                <div class="info_string_center">Газоразрядные индикаторы - приборы,
+                    применяющиеся для отображения какой-либо информации
+                    с помощью технологии тлеющего разряда.
+                </div>
+                <div class="info_string_bottom">
+                    <div class="frame_photo">
+                        <img src="/images/info_1.jpg">
+                    </div>
+                    <div class="frame_photo">
+                        <img src="/images/info_2.jpg">
+                    </div>
+                    <div class="frame_photo">
+                        <img src="/images/info_3.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="info_string">
+                <div class="info_string_top">КАК ЭТО РАБОТАЕТ?</div>
+                <div class="info_string_center">Элементы в индикаторах светятся приятным
+                    оранжевым цветом благодаря тлеющему разряду,
+                    который появляется из-за электричества,
+                    проходящего через газ - неон,
+                    находящийся в колбе. Катодами в индикаторах
+                    являются металлические символы,
+                    а анодом - сетка.
+                </div>
+                <div class="info_string_bottom">
+                    <div class="frame_photo">
+                        <img src="/images/info_4.jpg">
+                    </div>
+                    <div class="frame_photo">
+                        <img src="/images/info_5.jpg">
+                    </div>
+                    <div class="frame_photo">
+                        <img src="/images/info_6.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="info_string">
+                <div class="info_string_top">ИСТОРИЯ</div>
+                <div class="info_string_center">
+                    <p>Газоразрядные индикаторы впервые появились в США в 1952 году.
+                        Первые имели название NIX-1, а впоследствии
+                        все индикаторы стали называть Nixie.</p>
+                    После индикаторы производились во многих странах мира: СССР, США, Япония, Германия и другие.
+                    Однако самими популярными оказались индикаторы из СССР, причиной тому была их дешевизна и качество.
+                    Производились советские индикаторы до самого распада союза.
+                </div>
+                <div class="info_string_bottom">
+                    <div class="frame_photo">
+                        <img src="/images/info_7.jpg">
+                    </div>
+                    <div class="frame_photo">
+                        <img src="/images/info_8.jpg">
+                    </div>
+                    <div class="frame_photo">
+                        <img src="/images/info_9.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="info_string">
+                <div class="info_string_top">ВИДЫ ПОПУЛЯРНЫХ СОВЕТСКИХ ИНДИКАТОРОВ</div>
+                <div class="info_string_bottom">
+                    <div class="frame_photo">
+                        <div class="frame_header">ИН-12А и ИН-12Б</div>
+                        <img src="/images/info_in_12.jpg">
+                        <div class="frame_text">Оба индикатора
+                            имеют цифры от 0 до 9, но в ИН-12Б добавлена
+                            еще десятичная запятая
+                        </div>
+                    </div>
+                    <div class="frame_photo">
+                        <div class="frame_header">ИН-14</div>
+                        <img src="/images/info_in_14.jpg">
+                        <div class="frame_text">Отображение символов происходит
+                            не через торец, а через боковую стенку
+                        </div>
+                    </div>
+                    <div class="frame_photo">
+                        <div class="frame_header">ИН-16</div>
+                        <img src="/images/info_in_16.jpg">
+                        <div class="frame_text">Похожи на ИН-14, но гораздо меньше
+                        </div>
+                    </div>
+                </div>
+                <div class="info_string_bottom">
+                    <div class="frame_photo">
+                        <div class="frame_header">ИН-18</div>
+                        <img src="/images/info_in_18.jpg">
+                        <div class="frame_text">Самые большие советские индикаторы
+                        </div>
+                    </div>
+                    <div class="frame_photo">
+                        <div class="frame_header">ИН-8</div>
+                        <img src="/images/info_in_8.jpg">
+                        <div class="frame_text">Индикаторы с уникальным шрифтом,
+                            здесь 2 и 5 имеют разное начертание,
+                            в то время как в других индикаторах одно
+                            (символ перевернут)
+                        </div>
+                    </div>
+                    <div class="frame_photo">
+                        <div class="frame_header">ИН-17</div>
+                        <img src="/images/info_in_17.png">
+                        <div class="frame_text">Тоже маленькие как ИН-16, но другого формата
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 {% endblock %}

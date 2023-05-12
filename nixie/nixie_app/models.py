@@ -53,6 +53,8 @@ class Product(models.Model):
     class Meta:
         ordering = ('name',)
         index_together = (('id', 'slug'),)
+        verbose_name = 'Товар'
+        verbose_name_plural = 'Товары'
 
     def __str__(self):
         return self.name
@@ -60,3 +62,14 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('product-detail', args=[self.id, self.slug])
 
+
+class Review(models.Model):
+    name = models.CharField(max_length=50, verbose_name='Имя', db_index=True)
+    surname = models.CharField(max_length=50, verbose_name='Фамилия', db_index=True)
+    review_text = models.CharField(max_length=500, verbose_name='Отзыв', db_index=True)
+    available = models.BooleanField(default=False, verbose_name='Доступно')
+
+    class Meta:
+        ordering = ('-id',)
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'

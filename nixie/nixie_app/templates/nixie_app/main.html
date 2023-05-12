@@ -18,7 +18,7 @@
     }
 
     .heading_head {
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 350;
         font-size: 96px;
@@ -34,7 +34,7 @@
         margin-top: 0px;
         width: 450px;
         height: 40px;
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 300;
         font-size: 16px;
@@ -87,13 +87,18 @@
     }
 
     .main_catalog_items {
-        height: 500px;
+        height: auto;
         background: #3A3A3A;
-        width: 100%;
+    }
+
+    .main_catalog_div {
+        width: 80%;
         display: flex;
         flex-direction: row;
         justify-content: center;
         justify-items: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .carousel {
@@ -148,7 +153,7 @@
         height: 300px;
         margin-top: 107px;
         margin-left: 50px;
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 300;
         font-size: 16px;
@@ -207,7 +212,7 @@
     }
 
     .card_title {
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 300;
         font-size: 17px;
@@ -221,7 +226,7 @@
     }
 
     .card_price {
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 600;
         font-size: 30px;
@@ -240,7 +245,7 @@
     .card_add,
     .card_buy,
     .catalog_button {
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 300;
         font-size: 18px;
@@ -285,7 +290,7 @@
         max-width: 1000px; /* Ширина grid-контейнера */
         justify-content: right;
         justify-items: right; /* Размещаем карточку по центру */
-        column-gap: 30px; /* Отступ между колонками */
+        column-gap: 50px; /* Отступ между колонками */
         margin: 50px 5px 100px 0px;
     }
 
@@ -303,7 +308,7 @@
     }
 
     .main_catalog_right_top p {
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 300;
         font-size: 42px;
@@ -313,7 +318,7 @@
         text-align: left;
         position: absolute;
         bottom: 10px;
-        left: 50px;
+        left: 150px;
         color: #DC7A33;
     }
 
@@ -322,23 +327,28 @@
         text-align: center;
         position: absolute;
         top: 10px;
-        left: 50px;
+        left: 150px;
     }
 
     .description {
-        height: auto;
         background: #181818;
+        width: 100%;
+    }
+
+    .description_div {
+        height: auto;
         display: grid;
         /* Автоматически заполняем на всю ширину grid-контейнера */
         grid-template-columns: repeat(4, 225px);
-        width: 100%;
+        width: 80%;
         max-width: 2000px; /* Ширина grid-контейнера */
         justify-content: center;
         justify-items: center; /* Размещаем карточку по центру */
         column-gap: 70px; /* Отступ между колонками */
-        margin: -50px 0px 50px 0px;
+        margin: -50px auto 50px auto;
     }
-    .description_card{
+
+    .description_card {
         display: flex;
         flex-direction: column;
         justify-items: center;
@@ -348,14 +358,16 @@
         margin-bottom: 25px;
         height: 300px;
     }
+
     .description_card_top,
-    .description_card_bottom{
+    .description_card_bottom {
         text-align: center;
         height: 100px;
     }
-    .description_card_top p{
+
+    .description_card_top p {
         text-align: center;
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 500;
         font-size: 28px;
@@ -364,9 +376,10 @@
         color: #DC7A33;
         margin-bottom: 0;
     }
-    .description_card_bottom p{
+
+    .description_card_bottom p {
         text-align: center;
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 300;
         font-size: 18px;
@@ -374,6 +387,203 @@
         align-items: center;
         margin-top: 0;
         color: #FFFFFF;
+    }
+
+    .stages {
+        height: auto;
+        background: #3A3A3A;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    .stages_div {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+        margin: 50px auto 100px auto;
+    }
+
+    .stages_one,
+    .stages_two,
+    .stages_three,
+    .stages_four {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-items: center;
+        margin-top: 100px;
+    }
+
+    .stages_head {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: 'GOST Common';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 44px;
+        line-height: 40px;
+        color: #DC7A33;
+        vertical-align: center;
+    }
+
+    .stages_number {
+        width: 10%;
+        text-align: left;
+        font-family: 'GOST Common';
+        font-weight: 300;
+        font-size: 92px;
+        line-height: 92px;
+        color: #DC7A33;
+    }
+
+    .stages_photo {
+        width: 30%;
+        display: block;
+        height: 250px;
+    }
+
+    .stages_photo > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Встраиваем картинку в контейнер card__image */
+        transition: 0.2s;
+    }
+
+    .stages_description {
+        width: 50%;
+        margin-left: 20px;
+    }
+
+    .stages_two .stages_description,
+    .stages_four .stages_description {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+
+    .stages_two .description_top,
+    .stages_four .description_top,
+    .stages_two .description_bottom,
+    .stages_four .description_bottom,
+    .stages_two .stages_number,
+    .stages_four .stages_number {
+        text-align: right;
+    }
+
+    .description_top {
+        font-family: 'GOST Common';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 36px;
+        width: 100%;
+        align-items: center;
+        text-align: left;
+        color: #DC7A33;
+    }
+
+    .description_bottom {
+        text-align: left;
+        font-family: 'GOST Common';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18px;
+        width: 100%;
+        align-items: center;
+        color: #FFFFFF;
+        margin-top: 20px;
+    }
+
+    .functions {
+        width: 100%;
+        background: #181818;
+        height: auto;
+    }
+
+    .functions_div {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+        margin: 50px auto 50px auto;
+        padding-bottom: 100px;
+    }
+
+    .functions_head {
+        text-align: center;
+        font-family: 'GOST Common';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 44px;
+        line-height: 40px;
+        color: #DC7A33;
+        vertical-align: center;
+        margin: 100px auto 50px auto;
+    }
+
+    .functions_string {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-items: center;
+        margin-top: 50px;
+        gap: 50px;
+    }
+
+    .function {
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    .function_photo {
+        width: 140px;
+        display: block;
+        height: 150px;
+    }
+
+    .function_photo > img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill; /* Встраиваем картинку в контейнер card__image */
+        transition: 0.2s;
+    }
+
+    .function_description {
+        width: calc(100% - 150px);
+        margin-left: 20px;
+    }
+
+    .function_description_top {
+        font-family: 'GOST Common';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        width: 100%;
+        align-items: center;
+        text-align: left;
+        color: #DC7A33;
+    }
+
+    .function_description_bottom {
+        text-align: left;
+        font-family: 'GOST Common';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18px;
+        width: 100%;
+        align-items: center;
+        color: #FFFFFF;
+        margin-top: 20px;
     }
 </style>
 
@@ -388,6 +598,42 @@
 {% block 'page_content' %}
 
     <script type="text/javascript">
+        function setCookie(name, value, options = {}) {
+            options = {
+                path: '/',
+                // при необходимости добавьте другие значения по умолчанию
+                ...options
+            };
+            if (options.expires instanceof Date) {
+                options.expires = options.expires.toUTCString();
+            }
+            let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+            for (let optionKey in options) {
+                updatedCookie += "; " + optionKey;
+                let optionValue = options[optionKey];
+                if (optionValue !== true) {
+                    updatedCookie += "=" + optionValue;
+                }
+            }
+            document.cookie = updatedCookie;
+        }
+
+        // возвращает куки с указанным name,
+        // или undefined, если ничего не найдено
+        function getCookie(name) {
+            let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+
+        if (getCookie('hello') == null || getCookie('hello') !== 'true') {
+            alert("Сайт является учебным проектом, а не коммерческим продуктом. Любая покупка на сайте будет засчитана как пожертвование разработчику (итоговые цены товаров в 1000 раз меньше, чем указано)");
+            // записываем в куки, что уведомление было показано
+            setCookie('hello', 'true');
+        }
+
+
         /* функция добавления ведущих нулей */
         /* (если число меньше десяти, перед числом добавляем ноль) */
         function zero_first_format(value) {
@@ -425,6 +671,7 @@
             document.getElementById('dot1').innerHTML = '';
             document.getElementById('dot2').innerHTML = '';
         }, 1000);
+
     </script>
 
 
@@ -479,123 +726,258 @@
                 многим советских игровых автоматах.</p>
         </div>
     </section>
-
     <section class="main_catalog_items">
-        <div class="main_catalog_left" style="width: 50%; float:left">
-            <div class="card">
-                <!-- Верхняя часть -->
-                <div class="card_top">
-                    <!-- Изображение-ссылка товара -->
-                    <a href="{{ products.0.get_absolute_url }}" class="card_image">
-                        <img src="
+        <div class="main_catalog_div">
+            <div class="main_catalog_left" style="width: 50%; float:left">
+                <div class="card">
+                    <!-- Верхняя часть -->
+                    <div class="card_top">
+                        <!-- Изображение-ссылка товара -->
+                        <a href="{{ products.0.get_absolute_url }}" class="card_image">
+                            <img src="
 
 
 
-
-
-                                {% if products.0.image1 %}{{ products.0.image1.url }}{% else %}{{ "/images/sample.png" }}{% endif %}"/>
-                    </a>
-                </div>
-                <!-- Нижняя часть -->
-                <div class="card_bottom">
-                    <!-- Ссылка-название товара -->
-                    <a href="{{ products.0.get_absolute_url }}" class="card_title">
-                        {{ products.0.name }}
-                    </a>
-                    <!-- Цена на товар -->
-                    <div class="card_price">
-                        {{ products.0.price }} руб.
+                                    {% if products.0.image1 %}{{ products.0.image1.url }}{% else %}{{ "/images/sample.png" }}{% endif %}"/>
+                        </a>
                     </div>
+                    <!-- Нижняя часть -->
+                    <div class="card_bottom">
+                        <!-- Ссылка-название товара -->
+                        <a href="{{ products.0.get_absolute_url }}" class="card_title">
+                            {{ products.0.name }}
+                        </a>
+                        <!-- Цена на товар -->
+                        <div class="card_price">
+                            {{ products.0.price }} руб.
+                        </div>
 
-                    <!-- Кнопки купить и добавить в корзину -->
-                    <a href="{% url "orders:order_create_one" products.0.id %}" class="card_buy">Купить</a>
-                    <form action="{% url "cart:cart_add" products.0.id %}" method="post">
-                        {{ cart_product_form }}
-                        {% csrf_token %}
-                        <button type="submit" class="card_add">Добавить в корзину</button>
-                    </form>
-                </div>
-            </div>
-            <div class="card">
-                <!-- Верхняя часть -->
-                <div class="card_top">
-                    <!-- Изображение-ссылка товара -->
-                    <a href="{{ products.last.get_absolute_url }}" class="card_image">
-                        <img src="
-
-
-
-
-
-                                {% if products.last.image1 %}{{ products.last.image1.url }}{% else %}{{ "/images/sample.png" }}{% endif %}"/>
-                    </a>
-                </div>
-                <!-- Нижняя часть -->
-                <div class="card_bottom">
-                    <!-- Ссылка-название товара -->
-                    <a href="{{ products.last.get_absolute_url }}" class="card_title">
-                        {{ products.last.name }}
-                    </a>
-                    <!-- Цена на товар -->
-                    <div class="card_price">
-                        {{ products.last.price }} руб.
+                        <!-- Кнопки купить и добавить в корзину -->
+                        <a href="{% url "orders:order_create_one" products.0.id %}" class="card_buy">Купить</a>
+                        <form action="{% url "cart:cart_add" products.0.id %}" method="post">
+                            {{ cart_product_form }}
+                            {% csrf_token %}
+                            <button type="submit" class="card_add">Добавить в корзину</button>
+                        </form>
                     </div>
+                </div>
+                <div class="card">
+                    <!-- Верхняя часть -->
+                    <div class="card_top">
+                        <!-- Изображение-ссылка товара -->
+                        <a href="{{ products.last.get_absolute_url }}" class="card_image">
+                            <img src="
 
-                    <!-- Кнопки купить и добавить в корзину -->
-                    <a href="{% url "orders:order_create_one" products.last.id %}" class="card_buy">Купить</a>
-                    <form action="{% url "cart:cart_add" products.last.id %}" method="post">
-                        {{ cart_product_form }}
-                        {% csrf_token %}
-                        <button type="submit" class="card_add">Добавить в корзину</button>
-                    </form>
+
+
+                                    {% if products.last.image1 %}{{ products.last.image1.url }}{% else %}{{ "/images/sample.png" }}{% endif %}"/>
+                        </a>
+                    </div>
+                    <!-- Нижняя часть -->
+                    <div class="card_bottom">
+                        <!-- Ссылка-название товара -->
+                        <a href="{{ products.last.get_absolute_url }}" class="card_title">
+                            {{ products.last.name }}
+                        </a>
+                        <!-- Цена на товар -->
+                        <div class="card_price">
+                            {{ products.last.price }} руб.
+                        </div>
+
+                        <!-- Кнопки купить и добавить в корзину -->
+                        <a href="{% url "orders:order_create_one" products.last.id %}" class="card_buy">Купить</a>
+                        <form action="{% url "cart:cart_add" products.last.id %}" method="post">
+                            {{ cart_product_form }}
+                            {% csrf_token %}
+                            <button type="submit" class="card_add">Добавить в корзину</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="main_catalog_right" style="width: 50%; float:right">
-            <div class="main_catalog_right_top">
-                <p>Подберите
-                    себе идеальные часы</p>
-            </div>
-            <div class="main_catalog_right_bottom">
-                <a class="catalog_button" href="/catalog/">Перейти в каталог</a>
+            <div class="main_catalog_right" style="width: 50%; float:right">
+                <div class="main_catalog_right_top">
+                    <p>Подберите
+                        себе идеальные часы</p>
+                </div>
+                <div class="main_catalog_right_bottom">
+                    <a class="catalog_button" href="/catalog/">Перейти в каталог</a>
+                </div>
             </div>
         </div>
     </section>
-
     <section class="description">
-        <div class="description_card">
-            <div class="description_card_top">
-                <p>МАТЕРИАЛЫ</p>
+        <div class="description_div">
+            <div class="description_card">
+                <div class="description_card_top">
+                    <p>МАТЕРИАЛЫ</p>
+                </div>
+                <div class="description_card_bottom">
+                    <p>Корпуса ручной работы изготавливаются из ценных пород дерева</p>
+                </div>
             </div>
-            <div class="description_card_bottom">
-                <p>Корпуса ручной работы изготавливаются из ценных пород дерева</p>
+            <div class="description_card">
+                <div class="description_card_top">
+                    <p>РУЧНАЯ СБОРКА</p>
+                </div>
+                <div class="description_card_bottom">
+                    <p>Каждый экземпляр собирается вручную с использованием газоразрядных индикаторов производства
+                        СССР</p>
+                </div>
             </div>
-        </div>
-        <div class="description_card">
-            <div class="description_card_top">
-                <p>РУЧНАЯ СБОРКА</p>
+            <div class="description_card">
+                <div class="description_card_top">
+                    <p>ЭЛЕКТРОНИКА</p>
+                </div>
+                <div class="description_card_bottom">
+                    <p>Каждая плата управления часов проходит тщательный контроль, благодаря этому гарантирован точный
+                        ход
+                        часов и долгий срок службы ламп</p>
+                </div>
             </div>
-            <div class="description_card_bottom">
-                <p>Каждый экземпляр собирается вручную с использованием газоразрядных индикаторов производства СССР</p>
-            </div>
-        </div>
-        <div class="description_card">
-            <div class="description_card_top">
-                <p>ЭЛЕКТРОНИКА</p>
-            </div>
-            <div class="description_card_bottom">
-                <p>Каждая плата управления часов проходит тщательный контроль, благодаря этому гарантирован точный ход часов и долгий срок службы ламп</p>
-            </div>
-        </div>
-        <div class="description_card">
-            <div class="description_card_top">
-                <p>КОМЛЕКТАЦИЯ</p>
-            </div>
-            <div class="description_card_bottom">
-                <p>В комплект поставки часов входят часы, инструкция и блок питания</p>
+            <div class="description_card">
+                <div class="description_card_top">
+                    <p>КОМЛЕКТАЦИЯ</p>
+                </div>
+                <div class="description_card_bottom">
+                    <p>В комплект поставки часов входят часы, инструкция и блок питания</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <section class="stages">
+        <div class="stages_div">
+            <div class="stages_head">ЭТАПЫ ПРОИЗВОДСТВА</div>
+            <div class="stages_one">
+                <div class="stages_number">1</div>
+                <div class="stages_photo">
+                    <img src="images/process_find.jpg" alt=""/>
+                </div>
+                <div class="stages_description">
+                    <div class="description_top">ПОДБОР ИНДИКАТОРОВ</div>
+                    <div class="description_bottom">Так как газоразрядные лампы больше не производятся,
+                        следует тщательно подбирать их, находить экземпляры,
+                        которые не были или почти не были в использовании.
+                    </div>
+                </div>
+            </div>
+            <div class="stages_two">
+                <div class="stages_description">
+                    <div class="description_top">УСТАНОВКА ЛАМП НА ПЛАТУ УПРАВЛЕНИЯ</div>
+                    <div class="description_bottom">Платы управления часов проходят тестирование на точность
+                        на устойчивость к перегреву. В отличие от многих аналогов,
+                        данные часы гораздо более надежны благодаря правильно подобранным компонентам платы.
+                    </div>
+                </div>
+                <div class="stages_photo">
+                    <img src="images/process_solder.jpg" alt=""/>
+                </div>
+                <div class="stages_number">2</div>
+            </div>
+            <div class="stages_three">
+                <div class="stages_number">3</div>
+                <div class="stages_photo">
+                    <img src="images/process_case.jpeg" alt=""/>
+                </div>
+                <div class="stages_description">
+                    <div class="description_top">ИЗГОТОВЛЕНИЕ КОРПУСА</div>
+                    <div class="description_bottom">Корпус изготавливается из ценных пород дерева, таких как: дуб, бук,
+                        ясень и т.д.
+                        После обработки заготовка покрывается специальным маслом для защиты поверхности от царапин и
+                        влаги,
+                        также масло подчеркивает рисунок древесины.
+                    </div>
+                </div>
+            </div>
+            <div class="stages_four">
+                <div class="stages_description">
+                    <div class="description_top">ПРОВЕРКА И УПАКОВКА</div>
+                    <div class="description_bottom">После сборки каждая модель подвергается тестированию в течение
+                        нескольких дней,
+                        если все в порядке, часы упаковываются и готовятся к отправке покупателю.
+                    </div>
+                </div>
+                <div class="stages_photo">
+                    <img src="images/process_final.jpg" alt=""/>
+                </div>
+                <div class="stages_number">4</div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="functions">
+        <div class="functions_div">
+            <div class="functions_head">ФУНКЦИИ</div>
+            <div class="functions_string">
+                <div class="function">
+                    <div class="function_photo">
+                        <img src="images/function_alarm.png" alt=""/>
+                    </div>
+                    <div class="function_description">
+                        <div class="function_description_top">УСТАНОВКА БУДИЛЬНИКА</div>
+                        <div class="function_description_bottom">Часы позволяют настроить будильник,
+                            который будет срабатывать в назначенное время,
+                            издавая соответствующий звук.
+                        </div>
+                    </div>
+                </div>
+                <div class="function">
+                    <div class="function_photo">
+                        <img src="images/function_format.png" alt=""/>
+                    </div>
+                    <div class="function_description">
+                        <div class="function_description_top">СМЕНА ФОРМАТА</div>
+                        <div class="function_description_bottom">Есть возможность смены
+                            формата отображения времени - 12
+                            или 24 часа.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="functions_string">
+                <div class="function">
+                    <div class="function_photo">
+                        <img src="images/function_memory.png" alt=""/>
+                    </div>
+                    <div class="function_description">
+                        <div class="function_description_top">ПАМЯТЬ ВРЕМЕНИ</div>
+                        <div class="function_description_bottom">Часы программно продолжают
+                            идти даже после отключения от сети,
+                            срок памяти приблизительно равен одному месяцу.
+                        </div>
+                    </div>
+                </div>
+                <div class="function">
+                    <div class="function_photo">
+                        <img src="images/function_numbers.png" alt=""/>
+                    </div>
+                    <div class="function_description">
+                        <div class="function_description_top">ПЕРЕБОР ЦИФР</div>
+                        <div class="function_description_bottom">Каждую минуту на всех лампах перебираются цифры,
+                            это делается для увеличения срока службы ламп,
+                            а также добавляет эффектности.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="functions_string">
+                <div class="function">
+                    <div class="function_photo">
+                        <img src="images/function_colors.png" alt="" style="object-fit: fill"/>
+                    </div>
+                    <div class="function_description">
+                        <div class="function_description_top">ПОДСВЕТКА</div>
+                        <div class="function_description_bottom">Есть возможность выбрать подсветку ламп из 7 цветов,
+                            либо отключить ее.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     {#    скрипт кнопок для прокрутки карусели#}
     <script>
         const testimonials = document.querySelector('.carousel');

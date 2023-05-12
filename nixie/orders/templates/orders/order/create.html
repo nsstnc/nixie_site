@@ -2,7 +2,7 @@
     .page_title {
         width: 100%;
         height: 100px;
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 300;
         font-size: 42px;
@@ -38,7 +38,7 @@
     .right_div p {
         margin-left: 10px;
         margin-bottom: 20px;
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 300;
         font-size: 30px;
@@ -52,7 +52,7 @@
 
     .right_div ul {
         margin-top: 10px;
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 300;
         font-size: 14px;
@@ -79,7 +79,7 @@
         margin-top: 20px;
         width: 280px;
         height: 50px;
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 350;
         font-size: 24px;
@@ -94,7 +94,7 @@
         margin-top: 20px;
         width: 280px;
         height: 50px;
-        font-family: 'Bahnschrift';
+        font-family: 'GOST Common';
         font-style: normal;
         font-weight: 350;
         font-size: 24px;
@@ -117,19 +117,6 @@
         align-items: end;
     }
 
-    .field {
-        width: 280px;
-        height: 30px;
-        font-family: 'Bahnschrift';
-        font-style: normal;
-        font-weight: 300;
-        font-size: 18px;
-        line-height: 10px;
-        display: flex;
-        text-align: left;
-        color: #181818;
-        margin-bottom: 5px;
-    }
 </style>
 
 {% extends 'nixie_app/index.html' %}
@@ -153,7 +140,7 @@
                         </a>
                     </div>
                     <div class="form_div">
-                        <form method="post" class="order-form"">
+                        <form method="post" class="order-form">
                             {% csrf_token %}
                             <div class="form_group_cart">
                                 <div>
