@@ -325,8 +325,36 @@
         cursor: pointer;
     }
 
-    html {
-        scroll-behavior: smooth;
+    :root {
+        --scrollbarBg: #181818;
+        --scrollbarThumb: #DC7A33;
+        --scrollbarWidth: 12px;
+        --scrollbarBorder: 3px solid var(--scrollbarBg);
+        --scrollbarBorderRadius: calc(var(--scrollbarWidth) / 2);
+    }
+
+    html,
+    .scroller{
+        scrollbar-width: var(--scrollbarWidth);
+        scrollbar-color: var(--scrollbarThumb) var(--scrollbarBg);
+    }
+
+    html::-webkit-scrollbar,
+    .scroller::-webkit-scrollbar {
+        width: var(--scrollbarWidth);
+    }
+
+    html::-webkit-scrollbar-track,
+    .scroller::-webkit-scrollbar-track  {
+        background: var(--scrollbarBg);
+        border-radius: var(--scrollbarBorderRadius);
+    }
+
+    html::-webkit-scrollbar-thumb,
+    .scroller::-webkit-scrollbar-thumb  {
+        background-color: var(--scrollbarThumb);
+        border-radius: var(--scrollbarBorderRadius);
+        border: var(--scrollbarBorder);
     }
 </style>
 
@@ -336,7 +364,7 @@
         <li>
             <div class="logo">
                 <a href={% url 'main-name' %}>
-                    <img src="/images/logo.png" width="102" height="24"/>
+                    <img src="/images/logo.png" width="105" height="35"/>
                 </a>
             </div>
         </li>
@@ -430,7 +458,7 @@
         <li>
             <div class="logo_foot">
                 <a href="">
-                    <img src="/images/logo.png" width="102" height="24"/>
+                    <img src="/images/logo.png" width="110" height="40"/>
                 </a>
             </div>
         </li>

@@ -75,10 +75,11 @@ def order_create(request):
         if order_form.is_valid():
             order = order_form.save()
             for item in cart:
-                OrderItem.objects.create(order=order,
-                                         product=item['product'],
-                                         price=item['price'],
-                                         quantity=item['quantity'])
+                if item['quantity'] != 0:
+                    OrderItem.objects.create(order=order,
+                                             product=item['product'],
+                                             price=item['price'],
+                                             quantity=item['quantity'])
 
             price = cart.get_total_price()
             # очистка корзины

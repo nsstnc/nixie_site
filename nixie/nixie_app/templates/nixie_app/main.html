@@ -58,32 +58,35 @@
 
     .numbers {
         position: absolute;
-        height: 71px;
-        width: 555px;
+        height: 72px;
+        width: 558px;
         top: 78px;
         left: 84px;
         display: flex;
         flex-direction: row;
     }
 
-    .number1, .number3, .number5 {
-        margin-right: 32px;
+    .number1{
+        margin-right: 35px;
+        margin-left: -3px;
     }
-
-    .number2, .number4 {
-        margin-right: 26px;
+    .number2{
+        margin-right: 24px;
     }
-
+    .number3 {
+        margin-right: 35px;
+    }
+    .number4 {
+        margin-right: 25px;
+    }
+    .number5 {
+        margin-right: 35px;
+    }
     .dot1, .dot2 {
         height: 30px;
         width: 15px;
         margin-top: 53px;
         margin-right: 26px;
-    }
-
-    .main_info {
-        height: 500px;
-        background: #181818;
     }
 
     .main_catalog_items {
@@ -104,7 +107,8 @@
     .carousel {
         max-width: 500px;
         position: relative;
-        margin-top: 107px;
+        margin-top: auto;
+        margin-bottom: auto;
     }
 
     .carousel .btn {
@@ -137,7 +141,21 @@
         scroll-snap-align: center;
     }
 
+    .main_info {
+        width: 100%;
+        height: 500px;
+        background: #181818;
+    }
+
+    .main_info_div {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+    }
+
     .main_info_left, .main_info_right {
+        height: 100%;
         display: flex;
         flex-direction: row;
         justify-content: right;
@@ -146,12 +164,11 @@
 
     .main_info_right {
         justify-content: left;
+
     }
 
     .main_info_text {
-        width: 450px;
-        height: 300px;
-        margin-top: 107px;
+        width: 100%;
         margin-left: 50px;
         font-family: 'GOST Common';
         font-style: normal;
@@ -159,6 +176,8 @@
         font-size: 16px;
         line-height: 40px;
         color: #FFFFFF;
+        margin-top: auto;
+        margin-bottom: auto;
     }
 
     .card {
@@ -697,33 +716,36 @@
         </div>
     </section>
     <section class="main_info">
-        <div class="main_info_left" style="width: 50%; float:left">
-            <div class="carousel">
-                <div class="scroller">
-                    <div class="item">
-                        <img src="images/main_info1.jpeg" width="500" height="300"/>
+        <div class="main_info_div">
+            <div class="main_info_left" style="width: 50%; float:left">
+                <div class="carousel">
+                    <div class="scroller">
+                        <div class="item">
+                            <img src="images/main_info1.jpeg" width="500" height="300"/>
+                        </div>
+                        <div class="item">
+                            <img src="images/main_info2.jpg" width="500" height="300"/>
+                        </div>
+                        <div class="item">
+                            <img src="images/main_info3.jpg" width="500" height="300"/>
+                        </div>
                     </div>
-                    <div class="item">
-                        <img src="images/main_info2.jpg" width="500" height="300"/>
+                    <div class="btn prev">
+                        <img src="/images/prev_button.png"/>
                     </div>
-                    <div class="item">
-                        <img src="images/main_info3.jpg" width="500" height="300"/>
+                    <div class="btn next">
+                        <img src="/images/next_button.png"/>
                     </div>
-                </div>
-                <div class="btn prev">
-                    <img src="/images/prev_button.png"/>
-                </div>
-                <div class="btn next">
-                    <img src="/images/next_button.png"/>
                 </div>
             </div>
-        </div>
-        <div class="main_info_right" style="width: 50%; float:right">
-            <p class="main_info_text">Часы на газоразрядных индикаторах - стильный аксессуар для собственного
-                использования и отличный подарок
-                на любой повод. Это произведение искусства электроники и ручной обработки материалов.
-                Данные часы гарантируют погружение в эпоху СССР, ведь такие же лампы использовались в хорошо знакомых
-                многим советских игровых автоматах.</p>
+            <div class="main_info_right" style="width: 40%; float:left">
+                <p class="main_info_text">Часы на газоразрядных индикаторах - стильный аксессуар для собственного
+                    использования и отличный подарок
+                    на любой повод. Это произведение искусства электроники и ручной обработки материалов.
+                    Данные часы гарантируют погружение в эпоху СССР, ведь такие же лампы использовались в хорошо
+                    знакомых
+                    многим советских игровых автоматах.</p>
+            </div>
         </div>
     </section>
     <section class="main_catalog_items">
@@ -735,6 +757,8 @@
                         <!-- Изображение-ссылка товара -->
                         <a href="{{ products.0.get_absolute_url }}" class="card_image">
                             <img src="
+
+
 
 
 
@@ -767,6 +791,8 @@
                         <!-- Изображение-ссылка товара -->
                         <a href="{{ products.last.get_absolute_url }}" class="card_image">
                             <img src="
+
+
 
 
 
