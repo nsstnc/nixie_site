@@ -7,354 +7,792 @@
     <title>{% block 'title' %} {% endblock %}</title>
 </head>
 <style>
-    .basket {
-        position: relative;
+    @media (min-width: 1200px) {
+        .basket {
+            position: relative;
+            margin-left: -25px;
+        }
+
+        .cart_counter {
+            position: absolute;
+            right: 2.5px;
+            top: -2.5px;
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .header_ul {
+            display: flex;
+            background: #181818;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            height: 40px;
+            left: 0px;
+            top: 0px;
+            padding: 0;
+            list-style: none;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        .header_ul li {
+            margin-right: 25px;
+        }
+
+        .header_ul li:last-child {
+            margin-right: 20px;
+            margin-left: auto;
+        }
+
+        .header_buttons_ul {
+            display: flex;
+            flex-flow: row nowrap;
+            padding: 0;
+            list-style: none;
+        }
+
+
+        .logo {
+            margin-left: 50%;
+        }
+
+        .logo_foot a{
+            margin: auto auto auto auto;
+            width: auto;
+        }
+
+        .logo_foot {
+            display: flex;
+            justify-items: center;
+            align-content: center;
+            flex-direction: row;
+        }
+        .footer_left{
+            display: flex;
+            flex-direction: row;
+        }
+        .menu {
+            flex-grow: 1;
+            background: #181818;
+            width: 100%;
+            height: 40px;
+            left: 0px;
+            border-bottom: 1px solid #DC7A33;
+            border-top: 1px solid #DC7A33;
+        }
+
+
+        .menu ul {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 40px;
+            padding: 2px;
+            list-style: none;
+            margin-top: 0;
+        }
+
+        .menu li {
+            margin-right: 5px;
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 18px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .menu a,
+        .menu a:visited {
+            color: #DC7A33;
+            padding: 8px 10px;
+            text-decoration: none;
+        }
+
+        .menu li:active,
+        .menu li:hover {
+            color: #DC7A33;
+            text-decoration: underline;
+        }
+
+        .active a {
+            color: #DC7A33;
+            text-decoration: underline;
+            font-weight: 700;
+            font-size: 14px;
+
+        }
+
+        .footer_ul {
+            display: flex;
+            background: #181818;
+            flex-flow: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 20%;
+            position: relative;
+        }
+
+
+        .contacts_row_1 {
+            width: 30%;
+            margin-left: auto;
+            margin-right: 10%;
+            display: flex;
+            flex-direction: row;
+            justify-items: right;
+        }
+
+        .contacts_row_1 div {
+            width: auto;
+            margin: auto;
+        }
+
+        .contacts_row_2 {
+            width: 35%;
+            margin-left: auto;
+            margin-right: 10%;
+        }
+
+        .contacts {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .contacts_row_2 ul {
+            list-style: none;
+        }
+
+        .contacts_row_2 li {
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 18px;
+            display: flex;
+            text-align: right;
+            color: #DC7A33;
+        }
+
+        .links_footer {
+        }
+
+        .links_footer_li {
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 18px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .links_footer_li a,
+        .links_footer_li a:visited {
+            color: #FFFFFF;
+            padding: 0px;
+            text-decoration: none;
+        }
+
+        .links_footer_li a:active,
+        .links_footer_li a:hover {
+            color: #DC7A33;
+        }
+
+        .form_lable {
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 18px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #DC7A33;
+            margin-bottom: 2px;
+            margin-top: 2px;
+        }
+
+        .form_name {
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 44px;
+            line-height: 40px;
+            color: #DC7A33;
+            vertical-align: center;
+            margin-bottom: 5px;
+        }
+
+        .form,
+        .form_group {
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form_info {
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 12px;
+            color: #DC7A33;
+            vertical-align: center;
+        }
+
+        .form_section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .smallfield {
+            width: 500px;
+            height: 30px;
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 10px;
+            display: flex;
+            text-align: left;
+            color: #181818;
+            margin-bottom: 5px;
+        }
+
+        .bigfield {
+            width: 500px;
+            min-width: 500px;
+            min-height: 150px;
+            max-width: 500px;
+            max-height: 300px;
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 18px;
+            display: flex;
+            text-align: left;
+            color: #181818;
+        }
+
+        .send_button {
+            margin-top: 20px;
+            width: 280px;
+            height: 50px;
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 350;
+            font-size: 24px;
+            line-height: 50px;
+            color: #181818;
+            background: #DC7A33;
+            border-width: 0;
+        }
+
+        .send_button:active,
+        .send_button:hover {
+            margin-top: 20px;
+            width: 280px;
+            height: 50px;
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 350;
+            font-size: 24px;
+            line-height: 50px;
+            color: #DC7A33;
+            background: #3A3A3A;
+            border-width: 2px;
+            border-color: #DC7A33;
+            border-style: solid;
+            cursor: pointer;
+        }
+
+        :root {
+            --scrollbarBg: #181818;
+            --scrollbarThumb: #DC7A33;
+            --scrollbarWidth: 12px;
+            --scrollbarBorder: 3px solid var(--scrollbarBg);
+            --scrollbarBorderRadius: calc(var(--scrollbarWidth) / 2);
+        }
+
+        html,
+        .scroller {
+            scrollbar-width: var(--scrollbarWidth);
+            scrollbar-color: var(--scrollbarThumb) var(--scrollbarBg);
+        }
+
+        html::-webkit-scrollbar,
+        .scroller::-webkit-scrollbar {
+            width: var(--scrollbarWidth);
+        }
+
+        html::-webkit-scrollbar-track,
+        .scroller::-webkit-scrollbar-track {
+            background: var(--scrollbarBg);
+            border-radius: var(--scrollbarBorderRadius);
+        }
+
+        html::-webkit-scrollbar-thumb,
+        .scroller::-webkit-scrollbar-thumb {
+            background-color: var(--scrollbarThumb);
+            border-radius: var(--scrollbarBorderRadius);
+            border: var(--scrollbarBorder);
+        }
+
+        .nav, .side-menu, .hamb {
+            display: none;
+        }
     }
 
-    .cart_counter {
-        position: absolute;
-        right: 2px;
-        top: -1px;
-        font-family: 'GOST Common';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        color: #FFFFFF;
-        text-decoration: none;
-    }
+    @media (min-width: 300px ) and (max-width: 1199px) {
+        .nav {
+            width: 40%;
+            height: 3000px;
+            position: absolute;
+            overflow: hidden;
+            background-color: #181818;
+            margin-top: 65px;
+            right: 0;
+            max-height: 0;
+            transition: max-height .5s ease-out;
+            z-index: 2000;
+        }
 
-    .header_ul {
-        display: flex;
-        background: #181818;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-        height: 40px;
-        left: 0px;
-        top: 0px;
-        padding: 0;
-        list-style: none;
-        margin-bottom: 0;
-        margin-top: 0;
-    }
+        .nav_buttons {
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            justify-content: left;
+            list-style: none;
+            overflow: hidden;
+            margin-top: 50px;
+            padding: 0;
+            width: 100%;
 
-    .header_ul li {
-        margin-right: 25px;
-    }
+        }
 
-    .header_ul li:last-child {
-        margin-right: 20px;
-        margin-left: auto;
-    }
+        .nav_buttons div {
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .header_buttons_ul {
-        display: flex;
-        flex-flow: row nowrap;
-        padding: 0;
-        list-style: none;
-    }
+        .header_buttons_ul .telegram,
+        .header_buttons_ul .vk,
+        .header_buttons_ul .whatsapp {
+            display: none;
+        }
 
+        .nav_menu a {
+            display: block;
+            padding: 30px;
+        }
 
-    .logo {
-        margin-left: 113px;
-    }
+        .nav_menu {
+            justify-content: left;
+            align-items: center;
+            width: 100%;
+            height: 40px;
+            padding: 2px;
+            list-style: none;
+            margin-top: 0;
+        }
 
-    .logo_foot {
-        margin-right: 150px;
-        margin-left: 112px;
-    }
-
-    .menu {
-        flex-grow: 1;
-        background: #181818;
-        width: 100%;
-        height: 40px;
-        left: 0px;
-        border-bottom: 1px solid #DC7A33;
-        border-top: 1px solid #DC7A33;
-    }
-
-
-    .menu ul {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 40px;
-        padding: 2px;
-        list-style: none;
-        margin-top: 0;
-    }
-
-    .menu li {
-        margin-right: 5px;
-        font-family: 'GOST Common';
-        font-style: normal;
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 18px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        margin-top: 0;
-    }
-
-    .menu a,
-    .menu a:visited {
-        color: #DC7A33;
-        padding: 8px 10px;
-        text-decoration: none;
-    }
-
-    .menu li:active,
-    .menu li:hover {
-        color: #DC7A33;
-        text-decoration: underline;
-    }
-
-    .active a {
-        color: #DC7A33;
-        text-decoration: underline;
-        font-weight: 700;
-        font-size: 14px;
-
-    }
-
-    .footer_ul {
-        display: flex;
-        background: #181818;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-        height: 150px;
-        left: 0px;
-        top: 0px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
+        .nav_menu li {
+            margin-right: 5px;
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            margin-top: 0;
+        }
 
 
-    .contacts:last-child {
-        margin-right: 20px;
-        margin-left: auto;
-    }
+        .nav a,
+        .nav a:visited {
+            color: #DC7A33;
+            padding: 8px 10px;
+            text-decoration: none;
+        }
 
-    .contacts_rows_li {
-        margin-left: auto;
-        margin-right: 20px;
-    }
+        .nav li:active,
+        .nav li:hover {
+            color: #DC7A33;
+            text-decoration: underline;
+        }
 
-    .contacts_row_1 {
-        display: flex;
-        flex-flow: row nowrap;
-        padding: 0;
-        list-style: none;
 
-    }
+        .side-menu {
+            display: none;
+        }
 
-    .contacts_row_1 li:first-child {
-        margin-left: auto;
-        margin-right: 25px;
-    }
 
-    .contacts_row_1 li {
-        margin-right: 25px;
-    }
+        /* Menu Icon */
+        .hamb {
+            cursor: pointer;
+            float: right;
+            padding: 40px 20px;
+        }
 
-    .contacts_rows {
-        list-style: none;
-    }
+        /* Style label tag */
+        .hamb-line {
+            background: #DC7A33;
+            display: block;
+            height: 3px;
+            position: relative;
+            width: 24px;
 
-    .contacts_rows_li {
-        margin-bottom: 20px;
-    }
+        }
 
-    .contacts_row_2 ul {
-        list-style: none;
-        position: absolute;
-        right: 0
-    }
+        /* Style span tag */
+        .hamb-line::before,
+        .hamb-line::after {
+            background: #DC7A33;
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            transition: all .2s ease-out;
+            width: 100%;
+        }
 
-    .contacts_row_2 li {
-        font-family: 'GOST Common';
-        font-style: normal;
-        font-weight: 300;
-        font-size: 16px;
-        line-height: 18px;
-        display: flex;
-        color: #DC7A33;
-    }
+        .hamb-line::before {
+            top: 8px;
+        }
 
-    .links_footer_li {
-        font-family: 'GOST Common';
-        font-style: normal;
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 18px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-    }
+        .hamb-line::after {
+            top: -8px;
+        }
 
-    .links_footer_li a,
-    .links_footer_li a:visited {
-        color: #FFFFFF;
-        padding: 0px;
-        text-decoration: none;
-    }
+        .side-menu {
+            display: none;
+        }
 
-    .links_footer_li a:active,
-    .links_footer_li a:hover {
-        color: #DC7A33;
-    }
+        /* Toggle menu icon */
+        .side-menu:checked ~ nav {
+            max-height: 100%;
+        }
 
-    .form_lable {
-        font-family: 'GOST Common';
-        font-style: normal;
-        font-weight: 300;
-        font-size: 18px;
-        line-height: 18px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        color: #DC7A33;
-        margin-bottom: 2px;
-        margin-top: 2px;
-    }
+        .side-menu:checked ~ .hamb .hamb-line {
+            background: transparent;
+        }
 
-    .form_name {
-        font-family: 'GOST Common';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 44px;
-        line-height: 40px;
-        color: #DC7A33;
-        vertical-align: center;
-        margin-bottom: 5px;
-    }
+        .side-menu:checked ~ .hamb .hamb-line::before {
+            transform: rotate(-45deg);
+            top: 0;
+        }
 
-    .form,
-    .form_group {
-        margin-bottom: 25px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+        .side-menu:checked ~ .hamb .hamb-line::after {
+            transform: rotate(45deg);
+            top: 0;
+        }
 
-    .form_info {
-        font-family: 'GOST Common';
-        font-style: normal;
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 12px;
-        color: #DC7A33;
-        vertical-align: center;
-    }
 
-    .form_section {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+        .basket {
+            position: relative;
+            margin-top: 25px;
+        }
 
-    .smallfield {
-        width: 500px;
-        height: 30px;
-        font-family: 'GOST Common';
-        font-style: normal;
-        font-weight: 300;
-        font-size: 18px;
-        line-height: 10px;
-        display: flex;
-        text-align: left;
-        color: #181818;
-        margin-bottom: 5px;
-    }
+        .basket img {
+            width: 34px;
+            height: 30px;
+        }
 
-    .bigfield {
-        width: 500px;
-        min-width: 500px;
-        min-height: 150px;
-        max-width: 500px;
-        max-height: 300px;
-        font-family: 'GOST Common';
-        font-style: normal;
-        font-weight: 300;
-        font-size: 18px;
-        line-height: 18px;
-        display: flex;
-        text-align: left;
-        color: #181818;
-    }
+        .cart_counter {
+            position: absolute;
+            right: 2.5px;
+            top: -2.5px;
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
 
-    .send_button {
-        margin-top: 20px;
-        width: 280px;
-        height: 50px;
-        font-family: 'GOST Common';
-        font-style: normal;
-        font-weight: 350;
-        font-size: 24px;
-        line-height: 50px;
-        color: #181818;
-        background: #DC7A33;
-        border-width: 0;
-    }
+        .header_ul {
+            display: flex;
+            background: #181818;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+            left: 0px;
+            top: 0px;
+            padding: 0;
+            list-style: none;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
 
-    .send_button:active,
-    .send_button:hover {
-        margin-top: 20px;
-        width: 280px;
-        height: 50px;
-        font-family: 'GOST Common';
-        font-style: normal;
-        font-weight: 350;
-        font-size: 24px;
-        line-height: 50px;
-        color: #DC7A33;
-        background: #3A3A3A;
-        border-width: 2px;
-        border-color: #DC7A33;
-        border-style: solid;
-        cursor: pointer;
-    }
+        .header_ul li {
+            margin-right: 25px;
+        }
 
-    :root {
-        --scrollbarBg: #181818;
-        --scrollbarThumb: #DC7A33;
-        --scrollbarWidth: 12px;
-        --scrollbarBorder: 3px solid var(--scrollbarBg);
-        --scrollbarBorderRadius: calc(var(--scrollbarWidth) / 2);
-    }
+        .header_ul li:last-child {
+            margin-right: 20px;
+            margin-left: auto;
+        }
 
-    html,
-    .scroller{
-        scrollbar-width: var(--scrollbarWidth);
-        scrollbar-color: var(--scrollbarThumb) var(--scrollbarBg);
-    }
+        .header_buttons_ul {
+            display: flex;
+            flex-flow: row nowrap;
+            padding: 0;
+            list-style: none;
+        }
 
-    html::-webkit-scrollbar,
-    .scroller::-webkit-scrollbar {
-        width: var(--scrollbarWidth);
-    }
 
-    html::-webkit-scrollbar-track,
-    .scroller::-webkit-scrollbar-track  {
-        background: var(--scrollbarBg);
-        border-radius: var(--scrollbarBorderRadius);
-    }
+        .logo {
+            margin-left: 20%;
+        }
 
-    html::-webkit-scrollbar-thumb,
-    .scroller::-webkit-scrollbar-thumb  {
-        background-color: var(--scrollbarThumb);
-        border-radius: var(--scrollbarBorderRadius);
-        border: var(--scrollbarBorder);
+        .logo_foot a{
+            margin: auto auto auto auto;
+            width: auto;
+        }
+
+        .footer_left{
+            display: flex;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .menu ul {
+            display: none;
+        }
+
+       .footer_ul {
+            display: flex;
+            background: #181818;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 30%;
+            position: relative;
+        }
+
+
+        .contacts_row_1 {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: row;
+            justify-items: right;
+        }
+
+         .contacts_row_1 div {
+            width: auto;
+            margin: auto;
+        }
+
+        .contacts_row_2 {
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contacts {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .contacts_row_2 ul {
+            list-style: none;
+            margin-left: auto;
+            margin-right: auto;
+            width: auto;
+        }
+
+        .contacts_row_2 li {
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 18px;
+            display: flex;
+            color: #DC7A33;
+        }
+        .links_footer{
+            display: none;
+        }
+
+        .form_lable {
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 18px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #DC7A33;
+            margin-bottom: 2px;
+            margin-top: 2px;
+        }
+
+        .form_name {
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 44px;
+            line-height: 40px;
+            color: #DC7A33;
+            vertical-align: center;
+            margin-bottom: 5px;
+        }
+
+        .form,
+        .form_group {
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form_info {
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 12px;
+            color: #DC7A33;
+            vertical-align: center;
+        }
+
+        .form_section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .smallfield {
+            width: 50vh;
+            height: 30px;
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 10px;
+            display: flex;
+            text-align: left;
+            color: #181818;
+            margin-bottom: 5px;
+        }
+
+        .bigfield {
+            width: 50vh;
+            min-width: 50vh;
+            min-height: 150px;
+            max-width: 50vh;
+            max-height: 300px;
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 18px;
+            display: flex;
+            text-align: left;
+            color: #181818;
+        }
+
+        .send_button {
+            margin-top: 20px;
+            width: 280px;
+            height: 50px;
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 350;
+            font-size: 24px;
+            line-height: 50px;
+            color: #181818;
+            background: #DC7A33;
+            border-width: 0;
+        }
+
+        .send_button:active,
+        .send_button:hover {
+            margin-top: 20px;
+            width: 280px;
+            height: 50px;
+            font-family: 'GOST Common';
+            font-style: normal;
+            font-weight: 350;
+            font-size: 24px;
+            line-height: 50px;
+            color: #DC7A33;
+            background: #3A3A3A;
+            border-width: 2px;
+            border-color: #DC7A33;
+            border-style: solid;
+            cursor: pointer;
+        }
+
+        :root {
+            --scrollbarBg: #181818;
+            --scrollbarThumb: #DC7A33;
+            --scrollbarWidth: 12px;
+            --scrollbarBorder: 3px solid var(--scrollbarBg);
+            --scrollbarBorderRadius: calc(var(--scrollbarWidth) / 2);
+        }
+
+        html,
+        .scroller {
+            scrollbar-width: var(--scrollbarWidth);
+            scrollbar-color: var(--scrollbarThumb) var(--scrollbarBg);
+        }
+
+        html::-webkit-scrollbar,
+        .scroller::-webkit-scrollbar {
+            width: var(--scrollbarWidth);
+        }
+
+        html::-webkit-scrollbar-track,
+        .scroller::-webkit-scrollbar-track {
+            background: var(--scrollbarBg);
+            border-radius: var(--scrollbarBorderRadius);
+        }
+
+        html::-webkit-scrollbar-thumb,
+        .scroller::-webkit-scrollbar-thumb {
+            background-color: var(--scrollbarThumb);
+            border-radius: var(--scrollbarBorderRadius);
+            border: var(--scrollbarBorder);
+        }
     }
 </style>
 
@@ -368,6 +806,7 @@
                 </a>
             </div>
         </li>
+
         <li class="header_buttons">
             <ul class="header_buttons_ul">
                 <li>
@@ -392,9 +831,45 @@
                     </div>
                 </li>
                 <li>
+                    <input class="side-menu" type="checkbox" id="side-menu"/>
+                    <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+                    <nav class="nav">
+                        <ul class="nav_menu">
+                            <li><a href="/">Главная</a></li>
+                            <li><a href="/catalog/">Каталог</a></li>
+                            <li><a href="/info/">О газоразрядных лампах</a></li>
+                            <li><a href="/portfolio/">Портфолио</a></li>
+                            <li><a href="/delivery/">Доставка, оплата и контакты</a>
+                            </li>
+                            <li><a href="/reviews/">Отзывы</a></li>
+                            <li><a href="/questions/">Часто задаваемые вопросы</a></li>
+                            <li>
+                                <div class="nav_buttons">
+                                    <div class="telegram_nav">
+                                        <a href="https://t.me/nsstnc">
+                                            <img src="/images/telegram.png" width="40" height="40"/>
+                                        </a>
+                                    </div>
+                                    <div class="vk_nav">
+                                        <a href="https://vk.com/nsstnc">
+                                            <img src="/images/vk.png" width="45" height="40"/>
+                                        </a>
+                                    </div>
+                                    <div class="whatsapp_nav">
+                                        <a href="https://wa.me/79279641244">
+                                            <img src="/images/whatsapp.png" width="40" height="40"/>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
                     <div class="basket">
                         <a href="{% url 'cart:cart_detail' %}">
-                            <img src="/images/basket_logo.png" width="27" height="24"/>
+                            <img src="/images/basket_logo.png" width="27.5" height="24"/>
 
                         </a>
                         <a class="cart_counter" href="{% url 'cart:cart_detail' %}">
@@ -454,63 +929,51 @@
 
 
 <footer>
-    <ul class="footer_ul">
-        <li>
-            <div class="logo_foot">
+    <div class="footer_ul">
+        <div class="footer_left" style="width: 50%; float:left">
+            <div class="logo_foot" style="width: 40%; float:left">
                 <a href="">
                     <img src="/images/logo.png" width="110" height="40"/>
                 </a>
             </div>
-        </li>
-        <li class="links_footer">
-            <ul class="links_footer_ul">
-                <li class="links_footer_li"><a href="/">Главная</a></li>
-                <li class="links_footer_li"><a href="/catalog/">Каталог</a></li>
-                <li class="links_footer_li"><a href="/info/">О газоразрядных лампах</a></li>
-                <li class="links_footer_li"><a href="/portfolio/">Портфолио</a></li>
-                <li class="links_footer_li"><a href="/delivery/">Доставка, оплата и контакты</a></li>
-                <li class="links_footer_li"><a href="/reviews/">Отзывы</a></li>
-                <li class="links_footer_li"><a href="/questions/">Часто задаваемые вопросы</a></li>
-            </ul>
-        </li>
-        <li class="contacts">
-            <ul class="contacts_rows">
-                <li class="contacts_rows_li">
-                    <ul class="contacts_row_1">
-                        <li>
-                            <div class="telegram">
-                                <a href="https://t.me/nsstnc">
-                                    <img src="/images/telegram.png" width="30" height="30"/>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="vk">
-                                <a href="https://vk.com/nsstnc">
-                                    <img src="/images/vk.png" width="33.5" height="30"/>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="whatsapp">
-                                <a href="https://wa.me/79279641244">
-                                    <img src="/images/whatsapp.png" width="30" height="30"/>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="contacts_rows_li">
-                    <div>
-                        <ul class="contacts_row_2">
-                            <li>+7 927 964 12 44</li>
-                            <li>egorgolubev0484@gmail.com</li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
+            <div class="links_footer" style="width: 60%; float:right">
+                <ul class="links_footer_ul">
+                    <li class="links_footer_li"><a href="/">Главная</a></li>
+                    <li class="links_footer_li"><a href="/catalog/">Каталог</a></li>
+                    <li class="links_footer_li"><a href="/info/">О газоразрядных лампах</a></li>
+                    <li class="links_footer_li"><a href="/portfolio/">Портфолио</a></li>
+                    <li class="links_footer_li"><a href="/delivery/">Доставка, оплата и контакты</a></li>
+                    <li class="links_footer_li"><a href="/reviews/">Отзывы</a></li>
+                    <li class="links_footer_li"><a href="/questions/">Часто задаваемые вопросы</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="contacts" style="width: 50%; float:right">
+            <div class="contacts_row_1" style="height: 50%; float:top">
+                <div class="telegram">
+                    <a href="https://t.me/nsstnc">
+                        <img src="/images/telegram.png" width="30" height="30"/>
+                    </a>
+                </div>
+                <div class="vk">
+                    <a href="https://vk.com/nsstnc">
+                        <img src="/images/vk.png" width="33.5" height="30"/>
+                    </a>
+                </div>
+                <div class="whatsapp">
+                    <a href="https://wa.me/79279641244">
+                        <img src="/images/whatsapp.png" width="30" height="30"/>
+                    </a>
+                </div>
+            </div>
+            <div class="contacts_row_2" style="height: 50%; float:bottom">
+                <ul>
+                    <li>+7 927 964 12 44</li>
+                    <li>egorgolubev0484@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </footer>
 
 </body>
