@@ -12,12 +12,18 @@
         line-height: 100px;
     }
 
-    .review_button {
+    .review_button p {
         font-family: 'GOST Common';
-        text-decoration: none;
+        height: auto;
         font-style: normal;
         font-weight: 400;
         font-size: 24px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .review_button,
+    .review_button:visited{
+        text-decoration: none;
         display: block;
         width: 250px;
         height: auto;
@@ -27,8 +33,10 @@
         border: 2px solid #DC7A33;
         cursor: pointer; /* Меняем курсор при наведении */
         margin: 20px auto 20px auto;
-
+        border-radius: 10px;
+        padding: 5px;
     }
+
 
     .review_button:hover {
         color: #DC7A33;
@@ -99,7 +107,7 @@
         <a>Отзывы</a>
     </section>
     <section class="review_section">
-        <a href="{% url 'reviews-create' %}" class="review_button">Написать отзыв</a>
+        <a href="{% url 'reviews-create' %}" class="review_button"><p>Написать отзыв</p></a>
         <div class="review_div">
             {% for review in reviews %}
                 <div class="card">

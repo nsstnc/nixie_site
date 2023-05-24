@@ -62,7 +62,7 @@
             margin-left: 50%;
         }
 
-        .logo_foot a{
+        .logo_foot a {
             margin: auto auto auto auto;
             width: auto;
         }
@@ -73,10 +73,12 @@
             align-content: center;
             flex-direction: row;
         }
-        .footer_left{
+
+        .footer_left {
             display: flex;
             flex-direction: row;
         }
+
         .menu {
             flex-grow: 1;
             background: #181818;
@@ -277,6 +279,8 @@
             text-align: left;
             color: #181818;
             margin-bottom: 5px;
+            border-radius: 5px;
+            border-width: 0;
         }
 
         .bigfield {
@@ -293,6 +297,8 @@
             display: flex;
             text-align: left;
             color: #181818;
+            border-radius: 5px;
+            border-width: 0;
         }
 
         .send_button {
@@ -307,6 +313,7 @@
             color: #181818;
             background: #DC7A33;
             border-width: 0;
+            border-radius: 10px;
         }
 
         .send_button:active,
@@ -363,8 +370,8 @@
             display: none;
         }
     }
-
-    @media (min-width: 300px ) and (max-width: 1199px) {
+    @media (min-width: 200px ) and (max-width: 1199px) {
+    @media (min-width: 200px ) and (max-width: 1199px) {
         .nav {
             width: 40%;
             height: 3000px;
@@ -374,7 +381,7 @@
             margin-top: 65px;
             right: 0;
             max-height: 0;
-            transition: max-height .5s ease-out;
+            transition: height .5s ease-out;
             z-index: 2000;
         }
 
@@ -570,12 +577,12 @@
             margin-left: 20%;
         }
 
-        .logo_foot a{
+        .logo_foot a {
             margin: auto auto auto auto;
             width: auto;
         }
 
-        .footer_left{
+        .footer_left {
             display: flex;
             width: 100%;
             margin-top: 20px;
@@ -589,7 +596,7 @@
             display: none;
         }
 
-       .footer_ul {
+        .footer_ul {
             display: flex;
             background: #181818;
             flex-flow: column;
@@ -610,7 +617,7 @@
             justify-items: right;
         }
 
-         .contacts_row_1 div {
+        .contacts_row_1 div {
             width: auto;
             margin: auto;
         }
@@ -645,7 +652,8 @@
             display: flex;
             color: #DC7A33;
         }
-        .links_footer{
+
+        .links_footer {
             display: none;
         }
 
@@ -661,17 +669,18 @@
             color: #DC7A33;
             margin-bottom: 2px;
             margin-top: 2px;
+            width: 100%;
         }
 
         .form_name {
             font-family: 'GOST Common';
             font-style: normal;
             font-weight: 400;
-            font-size: 44px;
+            font-size: 36px;
             line-height: 40px;
             color: #DC7A33;
             vertical-align: center;
-            margin-bottom: 5px;
+            margin-bottom: 0px;
         }
 
         .form,
@@ -681,6 +690,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            width:100%;
         }
 
         .form_info {
@@ -701,7 +711,7 @@
         }
 
         .smallfield {
-            width: 50vh;
+            width: 300px;
             height: 30px;
             font-family: 'GOST Common';
             font-style: normal;
@@ -712,13 +722,14 @@
             text-align: left;
             color: #181818;
             margin-bottom: 5px;
+            border-radius: 5px;
         }
 
         .bigfield {
-            width: 50vh;
-            min-width: 50vh;
+            width: 300px;
+            min-width: 300px;
             min-height: 150px;
-            max-width: 50vh;
+            max-width: 300px;
             max-height: 300px;
             font-family: 'GOST Common';
             font-style: normal;
@@ -728,6 +739,7 @@
             display: flex;
             text-align: left;
             color: #181818;
+            border-radius: 5px;
         }
 
         .send_button {
@@ -742,6 +754,7 @@
             color: #181818;
             background: #DC7A33;
             border-width: 0;
+            border-radius: 10px;
         }
 
         .send_button:active,
@@ -771,29 +784,54 @@
         }
 
         html,
-        .scroller {
+        .scroller,
+        .main_catalog_left {
             scrollbar-width: var(--scrollbarWidth);
             scrollbar-color: var(--scrollbarThumb) var(--scrollbarBg);
         }
 
         html::-webkit-scrollbar,
-        .scroller::-webkit-scrollbar {
+        .scroller::-webkit-scrollbar,
+        .main_catalog_left::-webkit-scrollbar {
             width: var(--scrollbarWidth);
         }
 
         html::-webkit-scrollbar-track,
-        .scroller::-webkit-scrollbar-track {
+        .scroller::-webkit-scrollbar-track,
+        .main_catalog_left::-webkit-scrollbar-track {
             background: var(--scrollbarBg);
+            border-radius: var(--scrollbarBorderRadius);
+        }
+        .main_catalog_left::-webkit-scrollbar-track {
+            background: #3A3A3A;
             border-radius: var(--scrollbarBorderRadius);
         }
 
         html::-webkit-scrollbar-thumb,
-        .scroller::-webkit-scrollbar-thumb {
+        .scroller::-webkit-scrollbar-thumb,
+        .main_catalog_left::-webkit-scrollbar-thumb
+        {
             background-color: var(--scrollbarThumb);
             border-radius: var(--scrollbarBorderRadius);
             border: var(--scrollbarBorder);
         }
+        .main_catalog_left::-webkit-scrollbar-thumb
+        {
+            background-color: var(--scrollbarThumb);
+            border-radius: var(--scrollbarBorderRadius);
+            border: solid 3px #3A3A3A;
+        }
+
+
+
     }
+
+    @media (min-width: 200px) and (max-width: 599px) {
+        .nav {
+            width: 70%;
+        }
+    }
+
 </style>
 
 
