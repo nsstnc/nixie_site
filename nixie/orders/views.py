@@ -52,8 +52,8 @@ def order_create_one(request, product_id):
             # запускаем проверку оплаты и отправляем email клиенту
             check_pay(order.id, label, pay_url, price)()
 
-
             return render(request, 'orders/order/created.html', res)
+
 
     else:
 

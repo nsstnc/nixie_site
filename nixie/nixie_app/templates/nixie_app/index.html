@@ -7,7 +7,38 @@
     <title>{% block 'title' %} {% endblock %}</title>
 </head>
 <style>
+    body {
+        padding: 0;
+        margin: 0;
+        background-image: url(/images/pattern2.png);
+        background-repeat: repeat-y;
+        background-size: contain;
+    }
+
+    .upward {
+        position: fixed;
+        right: 40px;
+        bottom: 40px;
+        width: 70px;
+        height: 70px;
+        background: url(/images/up_button2.png);
+        background-size: cover;
+        cursor: pointer;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.5s;
+        z-index: 2000;
+    }
+
+    .upward.active {
+        bottom: 40px;
+        visibility: visible;
+        opacity: 1;
+        z-index: 2000;
+    }
+
     @media (min-width: 1200px) {
+
         .basket {
             position: relative;
             margin-left: -25px;
@@ -26,6 +57,7 @@
         }
 
         .header_ul {
+            position: fixed;
             display: flex;
             background: #181818;
             flex-flow: row nowrap;
@@ -39,6 +71,16 @@
             list-style: none;
             margin-bottom: 0;
             margin-top: 0;
+            z-index: 3000;
+        }
+
+        .header_empty {
+            display: flex;
+            width: 100%;
+            height: 80px;
+            left: 0px;
+            top: 0px;
+            padding: 0;
         }
 
         .header_ul li {
@@ -80,6 +122,8 @@
         }
 
         .menu {
+            top: 40px;
+            position: fixed;
             flex-grow: 1;
             background: #181818;
             width: 100%;
@@ -87,6 +131,7 @@
             left: 0px;
             border-bottom: 1px solid #DC7A33;
             border-top: 1px solid #DC7A33;
+            z-index: 3000;
         }
 
 
@@ -327,7 +372,7 @@
             font-size: 24px;
             line-height: 50px;
             color: #DC7A33;
-            background: #3A3A3A;
+            background: #181818;
             border-width: 2px;
             border-color: #DC7A33;
             border-style: solid;
@@ -370,19 +415,19 @@
             display: none;
         }
     }
-    @media (min-width: 200px ) and (max-width: 1199px) {
+
     @media (min-width: 200px ) and (max-width: 1199px) {
         .nav {
             width: 40%;
-            height: 3000px;
-            position: absolute;
+            height: 100%;
+            position: fixed;
             overflow: hidden;
             background-color: #181818;
-            margin-top: 65px;
+            margin-top: 67px;
             right: 0;
             max-height: 0;
             transition: height .5s ease-out;
-            z-index: 2000;
+            z-index: 3000;
         }
 
         .nav_buttons {
@@ -554,6 +599,13 @@
             list-style: none;
             margin-bottom: 0;
             margin-top: 0;
+            z-index: 3000;
+            position: fixed;
+        }
+
+        .header_empty {
+            width: 100%;
+            height: 50px;
         }
 
         .header_ul li {
@@ -690,7 +742,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width:100%;
+            width: 100%;
         }
 
         .form_info {
@@ -768,7 +820,7 @@
             font-size: 24px;
             line-height: 50px;
             color: #DC7A33;
-            background: #3A3A3A;
+            background: #181818;
             border-width: 2px;
             border-color: #DC7A33;
             border-style: solid;
@@ -785,45 +837,36 @@
 
         html,
         .scroller,
-        .main_catalog_left {
+        .main_catalog_left,
+        .pictures {
             scrollbar-width: var(--scrollbarWidth);
             scrollbar-color: var(--scrollbarThumb) var(--scrollbarBg);
         }
 
         html::-webkit-scrollbar,
         .scroller::-webkit-scrollbar,
-        .main_catalog_left::-webkit-scrollbar {
+        .main_catalog_left::-webkit-scrollbar,
+        .pictures::-webkit-scrollbar {
             width: var(--scrollbarWidth);
         }
 
         html::-webkit-scrollbar-track,
         .scroller::-webkit-scrollbar-track,
-        .main_catalog_left::-webkit-scrollbar-track {
+        .main_catalog_left::-webkit-scrollbar-track,
+        .pictures::-webkit-scrollbar-track {
             background: var(--scrollbarBg);
             border-radius: var(--scrollbarBorderRadius);
         }
-        .main_catalog_left::-webkit-scrollbar-track {
-            background: #3A3A3A;
-            border-radius: var(--scrollbarBorderRadius);
-        }
+
 
         html::-webkit-scrollbar-thumb,
         .scroller::-webkit-scrollbar-thumb,
-        .main_catalog_left::-webkit-scrollbar-thumb
-        {
+        .main_catalog_left::-webkit-scrollbar-thumb,
+        .pictures::-webkit-scrollbar-thumb {
             background-color: var(--scrollbarThumb);
             border-radius: var(--scrollbarBorderRadius);
             border: var(--scrollbarBorder);
         }
-        .main_catalog_left::-webkit-scrollbar-thumb
-        {
-            background-color: var(--scrollbarThumb);
-            border-radius: var(--scrollbarBorderRadius);
-            border: solid 3px #3A3A3A;
-        }
-
-
-
     }
 
     @media (min-width: 200px) and (max-width: 599px) {
@@ -832,10 +875,10 @@
         }
     }
 
+
 </style>
-
-
 <header>
+    <div class="header_empty"></div>
     <ul class="header_ul">
         <li>
             <div class="logo">
@@ -918,8 +961,9 @@
         </li>
     </ul>
 </header>
-<body style="background-color: #3A3A3A">
 
+
+<body>
 <section class="menu">
     <ul>
         <li {% block nav_main %} {% endblock %} ><a href="/">Главная</a></li>
@@ -933,12 +977,14 @@
 </section>
 
 
+<div class="upward" onclick="scrollTopTop()"></div>
+{% block 'page_content' %}
 
-
-{% block 'page_content' %} {% endblock %}
+{% endblock %}
 
 
 <section class="form_section">
+
     <div class="form">
         <p class="form_name">ЗАДАТЬ ВОПРОС</p>
         <p class="form_info">Мы свяжемся с Вами по указанному email</p>
@@ -1013,6 +1059,18 @@
         </div>
     </div>
 </footer>
+<script>
+    window.addEventListener('scroll', function () {
+        var scroll = document.querySelector('.upward');
+        scroll.classList.toggle("active", window.scrollY > 500)
+    })
 
+    function scrollTopTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
+</script>
 </body>
 </html>

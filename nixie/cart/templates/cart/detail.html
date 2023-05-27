@@ -12,6 +12,16 @@
         line-height: 100px;
     }
 
+    .left {
+        width: 75%;
+        float: left;
+    }
+
+    .right {
+        width: 25%;
+        float: right;
+    }
+
     .cart_section {
         background: #181818;
         height: auto;
@@ -42,9 +52,10 @@
         line-height: 20px;
     }
 
+
     .counter {
-        display: flex;
-        flex-flow: row nowrap;
+        display: grid;
+        grid-template-columns: 35px 70px 35px;
         justify-content: center;
         align-items: center;
         position: absolute;
@@ -56,7 +67,11 @@
     .main {
         width: 80%;
         margin: 70px;
+        display: flex;
+        flex-direction: row;
     }
+
+
 
     .product_ul li {
         margin-right: 30px;
@@ -115,6 +130,7 @@
         left: 0;
         width: 100%;
         height: 100%;
+
     }
 
     .image > img {
@@ -122,10 +138,12 @@
         width: 100%;
         object-fit: cover; /* Встраиваем картинку в контейнер card__image */
         transition: 0.2s;
+
     }
 
     .image:hover > img {
         transform: scale(1.1);
+
     }
 
     .btn_min,
@@ -135,6 +153,7 @@
         width: 35px;
         height: 35px;
         margin-top: 50%;
+        padding: 0;
     }
 
     .count {
@@ -227,6 +246,7 @@
         right: 0;
         border-radius: 10px;
     }
+
     .card_buy:hover {
         color: #DC7A33;
         background: #181818;
@@ -234,6 +254,103 @@
     }
 
 
+    @media (max-width: 1199px) {
+        .main {
+            width: 90%;
+            flex-direction: column;
+            margin: 20px;
+        }
+
+        .left,
+        .right {
+            width: 100%;
+        }
+
+        .right_div {
+            margin-left: 0;
+        }
+
+        .card {
+            flex-direction: column;
+        }
+
+        .product_ul {
+            flex-flow: column nowrap;
+        }
+
+        .product_ul li {
+            margin: auto;
+        }
+
+        .product_ul li:last-child {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .counter {
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 150px;
+            height: auto;
+        }
+
+        .card_left {
+            margin: 5% 25% 5% 25%;
+            width: 50%;
+        }
+
+        .card_buy {
+            width: 50%;
+        }
+    }
+
+    @media (max-width: 599px) {
+        .main {
+            width: 90%;
+            flex-direction: column;
+            margin: 20px;
+        }
+
+        .left,
+        .right {
+            width: 100%;
+        }
+
+        .right_div {
+            margin-left: 0;
+        }
+
+        .card {
+            flex-direction: column;
+        }
+
+        .product_ul {
+            flex-flow: column nowrap;
+        }
+
+        .product_ul li {
+            margin: auto;
+        }
+
+        .product_ul li:last-child {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .counter {
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 150px;
+            height: auto;
+        }
+
+        .card_left {
+            margin: 5% 10% 5% 10%;
+            width: 80%;
+        }
+    }
 </style>
 {% extends 'nixie_app/index.html' %}
 {% block 'title' %}Корзина{% endblock %}
@@ -245,7 +362,7 @@
 
     <section class="cart_section">
         <div class="main">
-            <div class="left" style="width: 75%; float:left">
+            <div class="left">
                 {% for item in cart %}
                     {% if item.quantity != 0 %}
                         {% with product=item.product %}
@@ -255,14 +372,25 @@
                                     <div class="card_image">
                                         <a href="{{ product.get_absolute_url }}" class="image">
                                             <img src="
-                                                {% if product.image1 %}{{ product.image1.url }}{% else %}{{ "/images/sample.png" }}{% endif %}"/>
+
+
+
+
+
+
+
+
+
+                                                    {% if product.image1 %}{{ product.image1.url }}{% else %}{{ "/images/sample.png" }}{% endif %}"/>
                                         </a>
                                     </div>
+
                                 </div>
+
+
                                 <div class="card_right">
                                     <ul class="product_ul">
-                                        <li>{{ product.name }}</li>
-
+                                        <li> {{ product.name }}</li>
                                         <li>
                                             <div class="counter">
                                                 <form action="{% url "cart:cart_add" product_id=product.id %}"
@@ -289,8 +417,6 @@
                                         </li>
                                         <li class="num">{{ item.total_price }} руб.</li>
                                         <li><a href="{% url "cart:cart_remove" product.id %}"><img class='del'
-                                                                                                   width='35'
-                                                                                                   height="35"
                                                                                                    src="/images/plus.png"/></a>
                                         </li>
                                     </ul>
@@ -301,7 +427,7 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            <div class="right" style="width: 25%; float:right">
+            <div class="right">
                 <div class="right_div">
                     <div class="total">
                         <div class="total_text">Итого</div>

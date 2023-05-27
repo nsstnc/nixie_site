@@ -21,8 +21,9 @@
         margin-top: auto;
         margin-bottom: auto;
     }
+
     .review_button,
-    .review_button:visited{
+    .review_button:visited {
         text-decoration: none;
         display: block;
         width: 250px;
@@ -72,7 +73,8 @@
         transition: 0.2s;
 
     }
-    .card_top{
+
+    .card_top {
         width: 100%;
         font-family: 'GOST Common';
         font-style: normal;
@@ -85,7 +87,8 @@
         padding-bottom: 10px;
         border-bottom: 2px solid #DC7A33;
     }
-    .card_bottom{
+
+    .card_bottom {
         width: 100%;
         font-family: 'GOST Common';
         font-style: normal;
@@ -94,6 +97,14 @@
         align-items: center;
         text-align: left;
         color: #ffffff;
+    }
+
+    @media (max-width: 599px) {
+        .review_div {
+            display: grid;
+            grid-template-columns: 100%;
+            width: 90%;
+        }
     }
 </style>
 {% extends 'nixie_app/index.html' %}

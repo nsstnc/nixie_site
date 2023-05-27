@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .forms import ContactForm, ReviewForm
 from django.core.mail import send_mail, BadHeaderError
 from django.urls import reverse, reverse_lazy
@@ -34,6 +34,7 @@ def contact(request):
                           ['egorgolubev0484@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Форма заполнена неверно')
+
 
 def product_detail(request, id, slug):
     cart = Cart(request)
@@ -172,7 +173,7 @@ def review_create(request):
             'review_form': review_form,
         }
         return render(request, 'nixie_app/create.html', res)
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))  # возврат текущей страницы
+    # return HttpResponseRedirect(request.META.get('HTTP_REFERER'))  # возврат текущей страницы
 
 
 def questions(request):

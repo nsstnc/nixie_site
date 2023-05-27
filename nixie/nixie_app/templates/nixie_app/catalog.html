@@ -25,21 +25,21 @@
 
     .selected_filters {
         width: 50%;
-        background: #3A3A3A;
+        {#background: #3A3A3A;#}
         height: 50px;
         margin-bottom: 20px;
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
         align-items: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .selected_filter_card {
         padding-inline: 5px;
-
         background: #181818;
         margin-right: 5px;
-
         font-family: 'GOST Common';
         font-style: normal;
         font-weight: 300;
@@ -72,6 +72,8 @@
         line-height: 18px;
         color: #DC7A33;
         text-decoration: none;
+        text-align: center;
+
     }
 
     .reset_button:hover {
@@ -79,7 +81,7 @@
     }
 
     .catalog {
-        background: #3A3A3A;
+        {#background: #3A3A3A;#}
         width: 100%;
         border-bottom: 2px solid #181818;
     }
@@ -111,7 +113,7 @@
     }
 
     .card_top {
-        flex: 0 0 150px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
+        flex: 0 0 150px; /* Задаем высоту 150px, запрещаем расширение и сужение по высоте */
         position: relative;
         overflow: hidden; /* Скрываем, что выходит за пределы */
         margin: 10px 10px 0 10px;
@@ -253,6 +255,83 @@
         border-style: solid;
         cursor: pointer;
     }
+
+    @media (max-width: 599px) {
+        .filters_section {
+            height: auto;
+        }
+
+        .filters {
+            margin: 20px auto 20px auto;
+            background: #181818;
+            height: auto;
+            display: grid;
+            /* Автоматически заполняем на всю ширину grid-контейнера */
+            grid-template-columns: repeat(2, auto);
+            column-gap: 50px;
+            row-gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .filter, .show_button, .reset_button {
+            margin-right: 0;
+        }
+
+        .cards {
+            display: grid;
+            /* Автоматически заполняем на всю ширину grid-контейнера */
+            grid-template-columns: repeat(auto-fill, 150px);
+            width: 90%;
+            max-width: 1000px; /* Ширина grid-контейнера */
+            justify-content: center;
+            justify-items: center; /* Размещаем карточку по центру */
+            column-gap: 15px; /* Отступ между колонками */
+            row-gap: 20px; /* Отступ между рядами */
+            margin: 0 auto;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            width: 150px;
+            min-height: 175px;
+            display: flex;
+            flex-direction: column; /* Размещаем элементы в колонку */
+            transition: 0.2s;
+            position: relative;
+            background: #181818;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        .card_top {
+            flex: 0 0 150px; /* Задаем высоту 150px, запрещаем расширение и сужение по высоте */
+            position: relative;
+            overflow: hidden; /* Скрываем, что выходит за пределы */
+            margin: 5px 5px 0 5px;
+            border-radius: 10px;
+        }
+
+        .card_bottom {
+            margin: 0 5px 5px 5px;
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 auto; /* Занимаем всю оставшуюся высоту карточки */
+        }
+
+        .card_title {
+            font-size: 14px;
+        }
+
+        .card_price {
+            font-size: 24px;
+        }
+
+        .card_add,
+        .card_buy {
+            font-size: 14px;
+        }
+    }
 </style>
 {% extends 'nixie_app/index.html' %}
 {% load widget_tweaks %}
@@ -296,36 +375,44 @@
     <section class="catalog">
         <div class="cards">
             {% for product in filter.qs %}
-                    <div class="card">
-                        <!-- Верхняя часть -->
-                        <div class="card_top">
-                            <!-- Изображение-ссылка товара -->
-                            <a href="{{ product.get_absolute_url }}" class="card_image">
-                                <img src="
+                <div class="card">
+                    <!-- Верхняя часть -->
+                    <div class="card_top">
+                        <!-- Изображение-ссылка товара -->
+                        <a href="{{ product.get_absolute_url }}" class="card_image">
+                            <img src="
 
-                                        {% if product.image1 %}{{ product.image1.url }}{% else %}{{ "/images/sample.png" }}{% endif %}"/>
-                            </a>
-                        </div>
-                        <!-- Нижняя часть -->
-                        <div class="card_bottom">
-                            <!-- Ссылка-название товара -->
-                            <a href="{{ product.get_absolute_url }}" class="card_title">
-                                {{ product.name }}
-                            </a>
-                            <!-- Цена на товар -->
-                            <div class="card_price">
-                                {{ product.price }} руб.
-                            </div>
 
-                            <!-- Кнопки купить и добавить в корзину -->
-                            <a href="{% url "orders:order_create_one" product.id %}" class="card_buy">Купить</a>
-                            <form action="{% url "cart:cart_add" product.id %}" method="post">
-                                {{ cart_product_form }}
-                                {% csrf_token %}
-                                <button type="submit" class="card_add">Добавить в корзину</button>
-                            </form>
-                        </div>
+
+
+
+
+
+
+
+                                    {% if product.image1 %}{{ product.image1.url }}{% else %}{{ "/images/sample.png" }}{% endif %}"/>
+                        </a>
                     </div>
+                    <!-- Нижняя часть -->
+                    <div class="card_bottom">
+                        <!-- Ссылка-название товара -->
+                        <a href="{{ product.get_absolute_url }}" class="card_title">
+                            {{ product.name }}
+                        </a>
+                        <!-- Цена на товар -->
+                        <div class="card_price">
+                            {{ product.price }} руб.
+                        </div>
+
+                        <!-- Кнопки купить и добавить в корзину -->
+                        <a href="{% url "orders:order_create_one" product.id %}" class="card_buy">Купить</a>
+                        <form action="{% url "cart:cart_add" product.id %}" method="post">
+                            {{ cart_product_form }}
+                            {% csrf_token %}
+                            <button type="submit" class="card_add">Добавить в корзину</button>
+                        </form>
+                    </div>
+                </div>
             {% endfor %}
         </div>
     </section>

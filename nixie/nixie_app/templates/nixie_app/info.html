@@ -73,14 +73,17 @@
         transition: 0.2s;
         border-radius: 10px;
     }
-    .info_string:last-child .frame_photo{
+
+    .info_string:last-child .frame_photo {
         height: 400px;
         margin: 0 10px 0 10px;
     }
-    .info_string:last-child .frame_photo > img{
+
+    .info_string:last-child .frame_photo > img {
         height: 50%;
         margin-bottom: 20px;
     }
+
     .frame_header {
         width: 100%;
         font-family: 'GOST Common';
@@ -92,6 +95,7 @@
         color: #DC7A33;
         margin-bottom: 20px;
     }
+
     .frame_text {
         width: 100%;
         font-family: 'GOST Common';
@@ -101,6 +105,31 @@
         align-items: center;
         text-align: left;
         color: #ffffff;
+    }
+
+    @media (max-width: 599px) {
+        .page_title {
+            line-height: 42px;
+            margin-top: 29px;
+            margin-bottom: 29px;
+        }
+
+        .info_string_bottom {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .frame_photo {
+            display: block;
+            height: 200px;
+            width: 100%;
+            margin: 20px 0 20px 0;
+        }
+
+        .info_div {
+            width: 80%;
+        }
     }
 </style>
 {% extends 'nixie_app/index.html' %}

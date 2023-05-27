@@ -31,13 +31,14 @@
         flex-direction: row;
         height: 400px;
     }
+
     .frame_one,
     .frame_two,
     .frame_three,
     .frame_four,
     .frame_five {
         display: block;
-        margin: 0px 10px 0px 0px;
+        margin: 0 10px 0 0;
     }
 
     .frame_one {
@@ -56,27 +57,79 @@
         transition: 0.2s;
         border-radius: 10px;
     }
-    .frame_two{
+
+    .frame_two {
         width: 70%;
     }
-    .frame_five{
+
+    .frame_five {
         width: 70%;
     }
-    .right{
+
+    .right {
         display: flex;
         flex-direction: column;
         height: 100%
     }
-    .right_top{
+
+    .right_top {
         height: 60%;
         display: flex;
         flex-direction: row;
         margin-bottom: 10px;
     }
-    .right_bottom{
+
+    .right_bottom {
         height: 40%;
         display: flex;
         flex-direction: row;
+    }
+
+    @media (max-width: 599px) {
+        .string {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            width: 100%;
+        }
+
+        .frame_one,
+        .frame_two,
+        .frame_three,
+        .frame_four,
+        .frame_five {
+            display: block;
+            margin: 0 10px 0 0;
+        }
+
+        .frame_three,
+        .frame_five {
+            margin: 0;
+        }
+
+        .frame_one {
+            width: 100%;
+            height: calc(100%);
+            margin-bottom: 10px;
+        }
+
+        .frame_two,
+        .frame_five {
+            width: 40%;
+        }
+
+        .frame_three,
+        .frame_four {
+            width: 60%;
+        }
+
+        .right {
+            width: 100%;
+        }
+
+        .right_bottom {
+            margin-bottom: 10px;
+        }
     }
 </style>
 {% extends 'nixie_app/index.html' %}

@@ -35,7 +35,6 @@
         justify-content: center;
         justify-items: center;
         margin-top: 100px;
-
     }
 
     .delivery_last_string {
@@ -64,7 +63,8 @@
         margin-right: 70px;
     }
 
-    .delivery_right {
+    .delivery_right,
+    .socials {
         width: 80%;
         font-family: 'GOST Common';
         font-style: normal;
@@ -79,13 +79,38 @@
 
     }
 
-    .text{
+    .text {
         font-family: 'GOST Common';
         font-style: normal;
         font-weight: 300;
         font-size: 16px;
         line-height: 18px;
         color: #DC7A33;
+    }
+
+    @media (max-width: 599px) {
+        .page_title {
+            line-height: 42px;
+            margin-top: 29px;
+            margin-bottom: 29px;
+        }
+
+        .delivery_string {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            justify-items: center;
+            margin-top: 50px;
+        }
+
+        .delivery_right {
+            flex-direction: column;
+        }
+
+        .delivery_left {
+            margin-bottom: 20px;
+        }
     }
 </style>
 {% extends 'nixie_app/index.html' %}
@@ -121,29 +146,29 @@
                 <div class="delivery_right">
 
 
+                    <div class="socials">
+                        <div class="telegram">
+                            <a href="https://t.me/nsstnc">
+                                <img src="/images/telegram.png" width="45" height="45"/>
+                            </a>
+                        </div>
+
+                        <div class="vk">
+                            <a href="https://vk.com/nsstnc">
+                                <img src="/images/vk.png" width="51" height="45"/>
+                            </a>
+                        </div>
+
+                        <div class="whatsapp">
+                            <a href="https://wa.me/79279641244">
+                                <img src="/images/whatsapp.png" width="45" height="45"/>
+                            </a>
+                        </div>
+                    </div>
                     <div class="text">
                         +7 927 964 12 44 <br>
                         egorgolubev0484@gmail.com
                     </div>
-
-                    <div class="telegram">
-                        <a href="https://t.me/nsstnc">
-                            <img src="/images/telegram.png" width="45" height="45"/>
-                        </a>
-                    </div>
-
-                    <div class="vk">
-                        <a href="https://vk.com/nsstnc">
-                            <img src="/images/vk.png" width="51" height="45"/>
-                        </a>
-                    </div>
-
-                    <div class="whatsapp">
-                        <a href="https://wa.me/79279641244">
-                            <img src="/images/whatsapp.png" width="45" height="45"/>
-                        </a>
-                    </div>
-
 
                 </div>
             </div>

@@ -119,7 +119,8 @@
         justify-content: right;
         align-items: end;
     }
-    .field{
+
+    .field {
         width: 280px;
         height: 30px;
         font-family: 'GOST Common';
@@ -127,6 +128,83 @@
         font-size: 18px;
         border-radius: 5px;
         border: 0;
+    }
+
+    .left {
+        width: 75%;
+        float: left
+    }
+
+    .right {
+        width: 25%;
+        float: right
+    }
+    @media (max-width: 1199px) {
+        .left_image {
+            display: none;
+        }
+        .left {
+            width: 60%;
+        }
+        .right {
+            width: 40%;
+        }
+        .pay_button {
+            width: 200px;
+            margin-top: 20px;
+        }
+
+        .form_group_cart {
+            margin: 25px auto 25px auto;
+            width: 100%
+        }
+
+        .form_group_cart div {
+            margin: 0 auto 0 auto;
+        }
+    }
+    @media (max-width: 599px) {
+        .page_title{
+            line-height: 42px;
+            margin-top: 29px;
+        }
+        .right_div {
+            margin-left: 0;
+        }
+        .left_image {
+            display: none;
+        }
+        .main {
+            width: 90%;
+            margin: 25px;
+            padding-bottom: 25px;
+            flex-direction: column;
+            position: relative;
+            height: 700px;
+        }
+        .left,
+        .right {
+            width: 100%;
+            position: absolute;
+            top: 0;
+        }
+        .left{
+            top:200px;
+        }
+
+        .pay_button {
+            width: 200px;
+            margin-top: 20px;
+        }
+
+        .form_group_cart {
+            margin: 25px auto 25px auto;
+            width: 100%
+        }
+
+        .form_group_cart div {
+            margin: 0 auto 0 auto;
+        }
     }
 </style>
 
@@ -142,7 +220,7 @@
 
     <section class="cart_section">
         <div class="main">
-            <div class="left" style="width: 75%; float:left">
+            <div class="left">
 
                 <div class="left_div">
                     <div class="left_image">
@@ -183,7 +261,7 @@
                 </div>
 
             </div>
-            <div class="right" style="width: 25%; float:right">
+            <div class="right">
                 <div class="right_div">
                     <p class="title">Ваш заказ</p>
                     {% if cart %}
