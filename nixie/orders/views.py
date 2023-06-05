@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from .models import OrderItem
 from nixie_app.models import Product
+from nixie_app.views import contact
 from .forms import OrderCreateForm
 from cart.cart import Cart
 from nixie_app.forms import ContactForm
@@ -19,6 +20,7 @@ client = Client(token)
 
 def order_create_one(request, product_id):
     form = ContactForm()
+    contact(request)
     product = get_object_or_404(Product, id=product_id)
     cart = Cart(request)
     if request.method == 'POST':
@@ -29,7 +31,6 @@ def order_create_one(request, product_id):
                                      product=product,
                                      price=product.price,
                                      quantity=1)
-
             # задаем уникальный тег для заказа
             label = str(''.join(secrets.choice(string.ascii_uppercase + string.ascii_lowercase) for i in range(20)))
 
@@ -53,8 +54,6 @@ def order_create_one(request, product_id):
             check_pay(order.id, label, pay_url, price)()
 
             return render(request, 'orders/order/created.html', res)
-
-
     else:
 
         order_form = OrderCreateForm()
@@ -70,6 +69,7 @@ def order_create_one(request, product_id):
 def order_create(request):
     cart = Cart(request)
     form = ContactForm()
+    contact(request)
     if request.method == 'POST':
         order_form = OrderCreateForm(request.POST)
         if order_form.is_valid():

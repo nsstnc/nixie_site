@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 from nixie_app.models import Product
 from nixie_app.forms import ContactForm
+from nixie_app.views import contact
 from .cart import Cart
 from .forms import CartAddProductForm
 from django.http import HttpResponseRedirect
@@ -31,6 +32,7 @@ def cart_remove(request, product_id):
 def cart_detail(request):
     cart = Cart(request)
     form = ContactForm()
+    contact(request)
     res = {
         "form": form,
         'cart': cart,

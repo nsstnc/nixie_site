@@ -39,6 +39,7 @@ def contact(request):
 def product_detail(request, id, slug):
     cart = Cart(request)
     form = ContactForm()
+    contact(request)
     product = get_object_or_404(Product,
                                 id=id,
                                 slug=slug,
