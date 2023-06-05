@@ -25,10 +25,6 @@ class Product(models.Model):
         ('4', '4'),
         ('6', '6'),
     ]
-    views = [
-        ('string', 'строка'),
-        ('card', 'карточка')
-    ]
     material = models.CharField(max_length=50, choices=materials, verbose_name='Материал', db_index=True, blank=True,
                                 null=True)
     lamp_currency = models.CharField(max_length=1, choices=currency, verbose_name='Кол-во ламп', db_index=True,
