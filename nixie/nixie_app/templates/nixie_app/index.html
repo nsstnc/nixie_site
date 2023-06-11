@@ -953,7 +953,7 @@
                             <img src="/images/basket_logo.png" width="27.5" height="24"/>
 
                         </a>
-                        <a class="cart_counter" href="{% url 'cart:cart_detail' %}">
+                        <a id='counter' class="cart_counter" href="{% url 'cart:cart_detail' %}">
                             {{ cart_len }}</a>
                     </div>
                 </li>
@@ -1059,7 +1059,7 @@
         </div>
     </div>
 </footer>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
     window.addEventListener('scroll', function () {
         var scroll = document.querySelector('.upward');
@@ -1072,6 +1072,8 @@
             behavior: 'smooth'
         })
     }
+
+
 </script>
 
 </body>

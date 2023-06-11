@@ -25,8 +25,7 @@
 
     .selected_filters {
         width: 50%;
-        {#background: #3A3A3A;#}
-        height: 50px;
+    {#background: #3A3A3A;#} height: 50px;
         margin-bottom: 20px;
         display: flex;
         flex-flow: row nowrap;
@@ -81,8 +80,7 @@
     }
 
     .catalog {
-        {#background: #3A3A3A;#}
-        width: 100%;
+    {#background: #3A3A3A;#} width: 100%;
         border-bottom: 2px solid #181818;
     }
 
@@ -340,8 +338,34 @@
     class="active"
 {% endblock %}
 
-
 {% block 'page_content' %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.add-form').submit(function (e) {
+                e.preventDefault()
+
+                const url = $(this).attr('action')
+                console.log(url)
+                let res;
+                const products = parseInt($(`.cart_counter`).html())
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    cache: true,
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        res = products + 1
+                        $(`#counter`).text(res)
+                    },
+                    error: function (response) {
+                        console.log('error', response)
+                    }
+                })
+            })
+        });
+    </script>
 
     <section class="page_title">
         <a>Каталог</a>
@@ -381,15 +405,6 @@
                         <!-- Изображение-ссылка товара -->
                         <a href="{{ product.get_absolute_url }}" class="card_image">
                             <img src="
-
-
-
-
-
-
-
-
-
                                     {% if product.image1 %}{{ product.image1.url }}{% else %}{{ "/images/sample.png" }}{% endif %}"/>
                         </a>
                     </div>
@@ -406,10 +421,10 @@
 
                         <!-- Кнопки купить и добавить в корзину -->
                         <a href="{% url "orders:order_create_one" product.id %}" class="card_buy">Купить</a>
-                        <form action="{% url "cart:cart_add" product.id %}" method="post">
+                        <form action="{% url "cart:cart_add" product.id %}" method="post" class="add-form">
                             {{ cart_product_form }}
                             {% csrf_token %}
-                            <button type="submit" class="card_add">Добавить в корзину</button>
+                            <button id="update" type="submit" class="card_add">Добавить в корзину</button>
                         </form>
                     </div>
                 </div>
@@ -417,4 +432,7 @@
         </div>
     </section>
 
+
 {% endblock %}
+
+

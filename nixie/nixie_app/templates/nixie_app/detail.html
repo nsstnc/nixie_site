@@ -307,6 +307,33 @@
 {% extends 'nixie_app/index.html' %}
 {% block 'title' %}{{ product.name }} {% endblock %}
 {% block 'page_content' %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.add-form').submit(function (e) {
+                e.preventDefault()
+
+                const url = $(this).attr('action')
+                console.log(url)
+                let res;
+                const products = parseInt($(`.cart_counter`).html())
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    cache: true,
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        res = products + 1
+                        $(`#counter`).text(res)
+                    },
+                    error: function (response) {
+                        console.log('error', response)
+                    }
+                })
+            })
+        });
+    </script>
     <section class="page_title">
         <a>{{ product.name }}</a>
     </section>
@@ -349,7 +376,7 @@
                 </div>
                 <div class="card_right_bottom">
                     <a href="{% url "orders:order_create_one" product.id %}" class="card_buy">Купить</a>
-                    <form action="{% url "cart:cart_add" product.id %}" method="post">
+                    <form class='add-form' action="{% url "cart:cart_add" product.id %}" method="post">
                         {{ cart_product_form }}
                         {% csrf_token %}
                         <button type="submit" class="card_add">Добавить в корзину</button>

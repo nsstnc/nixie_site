@@ -55,9 +55,7 @@ def order_create_one(request, product_id):
 
             return render(request, 'orders/order/created.html', res)
     else:
-
         order_form = OrderCreateForm()
-
         res = {'item': product,
                'form': form,
                'order_form': order_form,

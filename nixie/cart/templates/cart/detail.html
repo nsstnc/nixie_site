@@ -356,6 +356,44 @@
 {% block 'title' %}Корзина{% endblock %}
 
 {% block 'page_content' %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.add-form').submit(function (e) {
+                e.preventDefault()
+
+                const url = $(this).attr('action')
+                console.log(url)
+                let res;
+
+                const products = parseInt($(`.cart_counter`).html())
+                const product = parseInt($(`.count`).html())
+                console.log(($(this)))
+                const button_min = $($(this).context.getElementsByTagName('button')).hasClass('btn_min')
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    cache: true,
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        if (button_min) {
+                            res_cart = products - 1
+
+                        } else{
+                            res_cart = products + 1
+
+                        }
+                        $(`#counter`).text(res_cart)
+                        {#$(`#count`).text(res_count)#}
+                        location.reload();
+                    },
+                    error: function (response) {
+                        console.log('error', response)
+                    }
+                })
+            })
+        });
+    </script>
     <section class="page_title">
         <a>Корзина</a>
     </section>
@@ -394,7 +432,8 @@
                                         <li>
                                             <div class="counter">
                                                 <form action="{% url "cart:cart_add" product_id=product.id %}"
-                                                      method="post">
+                                                      method="post"
+                                                class="add-form">
                                                     {{ cart_product_form }}
                                                     {% csrf_token %}
                                                     <input type="hidden" name="quantity" value="-1"/>
@@ -405,7 +444,8 @@
 
                                                 <p class="count">{{ item.quantity }}</p>
                                                 <form action="{% url "cart:cart_add" product_id=product.id %}"
-                                                      method="post">
+                                                      method="post"
+                                                class="add-form">
                                                     {{ cart_product_form }}
                                                     {% csrf_token %}
                                                     <input type="hidden" name="quantity" value="1"/>
@@ -417,7 +457,7 @@
                                         </li>
                                         <li class="num">{{ item.total_price }} руб.</li>
                                         <li><a href="{% url "cart:cart_remove" product.id %}"><img class='del'
-                                                                                                   src="/images/plus.png"/></a>
+                                                                                                      src="/images/plus.png"/></a>
                                         </li>
                                     </ul>
                                 </div>

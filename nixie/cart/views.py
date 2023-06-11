@@ -5,7 +5,7 @@ from nixie_app.forms import ContactForm
 from nixie_app.views import contact
 from .cart import Cart
 from .forms import CartAddProductForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 
 
 @require_POST
@@ -18,6 +18,10 @@ def cart_add(request, product_id):
         cart.add(product=product,
                  quantity=cd['quantity'],
                  update_quantity=cd['update'])
+        # data = {
+        #     'cart_len': len(cart),
+        # }
+        # return JsonResponse(data, safe=False)
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))  # возврат текущей страницы
 
