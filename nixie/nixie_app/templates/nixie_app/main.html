@@ -639,7 +639,7 @@
     @media (max-width: 1199px) {
         .card {
             width: 220px;
-            min-height: 350px;
+            height: 350px;
             display: flex;
             flex-direction: column; /* Размещаем элементы в колонку */
             transition: 0.2s;
@@ -1119,7 +1119,7 @@
 
         .card {
             width: 220px;
-            min-height: 350px;
+            height: 350px;
             display: flex;
             flex-direction: column; /* Размещаем элементы в колонку */
             transition: 0.2s;
@@ -1583,7 +1583,7 @@
 
         .card {
             width: 220px;
-            min-height: 350px;
+            height: 350px;
             display: flex;
             flex-direction: column; /* Размещаем элементы в колонку */
             transition: 0.2s;
@@ -1802,6 +1802,34 @@
 {% endblock %}
 
 {% block 'page_content' %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.add-form').submit(function (e) {
+                e.preventDefault()
+
+                const url = $(this).attr('action')
+                console.log(url)
+                let res;
+                const products = parseInt($(`.cart_counter`).html())
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    cache: true,
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        res = products + 1
+                        $(`#counter`).text(res)
+                    },
+                    error: function (response) {
+                        console.log('error', response)
+                    }
+                })
+            })
+        });
+    </script>
+
 
     <script type="text/javascript">
         function setCookie(name, value, options = {}) {
@@ -1972,7 +2000,7 @@
 
                         <!-- Кнопки купить и добавить в корзину -->
                         <a href="{% url "orders:order_create_one" products.0.id %}" class="card_buy">Купить</a>
-                        <form action="{% url "cart:cart_add" products.0.id %}" method="post">
+                        <form class='add-form' action="{% url "cart:cart_add" products.0.id %}" method="post">
                             {{ cart_product_form }}
                             {% csrf_token %}
                             <button type="submit" class="card_add">Добавить в корзину</button>
@@ -2015,7 +2043,7 @@
 
                         <!-- Кнопки купить и добавить в корзину -->
                         <a href="{% url "orders:order_create_one" products.last.id %}" class="card_buy">Купить</a>
-                        <form action="{% url "cart:cart_add" products.last.id %}" method="post">
+                        <form class='add-form' action="{% url "cart:cart_add" products.last.id %}" method="post">
                             {{ cart_product_form }}
                             {% csrf_token %}
                             <button type="submit" class="card_add">Добавить в корзину</button>

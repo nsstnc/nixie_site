@@ -7,10 +7,14 @@
     <title>{% block 'title' %} {% endblock %}</title>
 </head>
 <style>
-    @font-face {
-	font-family: 'GOST Common';
-	src: local('GOST Common'),
-		url(gost_common.ttf);
+    {#@font-face {#}
+	{#font-family: 'GOST Common';#}
+	{#src: url('/images/gost_common-webfont.woff2') format('woff2'),#}
+    {#     url('/images/gost_common-webfont.woff') format('woff');#}
+    {#}#}
+
+    html{
+        background: #181818;
     }
 
     body {
