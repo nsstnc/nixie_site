@@ -1,0 +1,6 @@
+Django==4.0.4
+django-environ==0.10.0
+django-filter==23.1
+huey==2.4.3
+YooMoney==0.1.0
+redis==4.2.2
