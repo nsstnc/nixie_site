@@ -4,3 +4,6 @@ django-filter==23.1
 huey==2.4.3
 YooMoney==0.1.0
 redis==4.2.2
+django-widget-tweaks
+requests
+Pillow
