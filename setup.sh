@@ -13,6 +13,6 @@ cd nixie
 python manage.py run_huey &
 python manage.py runserver 1111 &
 
-xdg-open http://127.0.0.1:1111/
+open http://127.0.0.1:1111/
 
 read -p "Press any key to continue..."
